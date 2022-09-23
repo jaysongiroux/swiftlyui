@@ -1,0 +1,36 @@
+@import '../../../styles/_colors.scss';
+
+.Button {
+  background-color: $PrimaryColor;
+  color: $white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $PrimaryColorHover;
+  }
+
+  &.small {
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+
+  &.medium {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  &.large {
+    font-size: 18px;
+    padding: 15px 30px;
+  }
+
+  &.disabled {
+    background-color: $disabledColor;
+    color: $disabledText;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,27 @@
+@import '../../../styles/_colors.scss';
+
+.TextInput {
+  background-color: $white;
+  border: 1px solid $disabledColor;
+  border-radius: 4px;
+  color: $black;
+  font-size: 16px;
+  padding: 8px 16px;
+  width: 100%;
+  transition: .25s;
+
+  &:disabled {
+    // background-color: $disabledColor;
+    color: $disabledTextGray;
+    border-color: $disabledTextGray;
+  }
+
+  &:focus {
+    border-color: $PrimaryColor;
+    outline: none;
+  }
+
+  &:not(:disabled):hover {
+    border-color: $PrimaryColorHover;
+  }
+}

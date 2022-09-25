@@ -1,6 +1,6 @@
 // TextInput.stories.js|ts|jsx|tsx
 
-import React, { useState } from 'react';
+import React from 'react';
 import { TextInput } from './TextInput';
 import { useArgs } from '@storybook/client-api';
 
@@ -16,10 +16,14 @@ export default {
     label: 'Hello world',
     error: false,
     onChange: () => {},
+    inputStyle: { color: '#3f51b5' },
+    style: { color: '#3f51b5' },
+    labelStyle: { color: '#b53fb5', fontStyle: 'italic' },
+    labelPosition: 'top',
   },
 };
 
-export const SimpleTextInput = ({ onChange,...args }) => {
+export const TextInputExample = ({ onChange, ...args }) => {
   const [{ value }, updateArgs] = useArgs();
   return (
     <div style={{ width: '50%' }}>

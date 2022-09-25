@@ -15,6 +15,9 @@ export const TextInput = ({
   onChange,
   label,
   error,
+  style,
+  labelPosition,
+  labelStyle,
   ...props
 }) => {
   const handleChange = (e) => {
@@ -22,20 +25,32 @@ export const TextInput = ({
   };
   const Input = type === 'textarea' ? 'textarea' : 'input';
   return (
-    <div className="TextInputContainer">
-      <Label className="TextInputLabel" disabled={disabled}>{label}</Label>
-      <Input
-        ref={ref}
-        value={value}
-        type={type}
-        disabled={disabled}
-        aria-label={label}
-        className={cx('TextInput', { disabled }, className, error && 'hasError')}
-        onChange={handleChange}
-        rows={rows}
-        {...props}
-      />
-    </div>
+    <>
+      {labelPosition === 'top' && (
+        <Label className="TextInputLabel" disabled={disabled} style={{ ...labelStyle }}>
+          {label}
+        </Label>
+      )}
+      <div className="TextInputContainer" style={{ ...style }}>
+        {labelPosition === 'inside' && (
+          <Label className="TextInputLabel" disabled={disabled} style={{ ...labelStyle }}>
+            {label}
+          </Label>
+        )}
+        <Input
+          ref={ref}
+          value={value}
+          type={type}
+          disabled={disabled}
+          aria-label={label}
+          className={cx('TextInput', { disabled }, className, error && 'hasError')}
+          onChange={handleChange}
+          rows={rows}
+          style={props.inputStyle}
+          {...props}
+        />
+      </div>
+    </>
   );
 };
 
@@ -49,7 +64,10 @@ TextInput.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  style: PropTypes.object,
   error: PropTypes.bool,
+  labelPosition: PropTypes.oneOf(['top', 'inside']),
+  labelStyle: PropTypes.object,
 };
 
 TextInput.defaultProps = {
@@ -62,5 +80,8 @@ TextInput.defaultProps = {
   placeholder: null,
   onChange: undefined,
   label: null,
+  style: {},
   error: false,
+  labelPosition: 'top',
+  labelStyle: {},
 };

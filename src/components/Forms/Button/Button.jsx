@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import './Button.scss';
 
-export const Button = ({ className, onClick, content, disabled, buttonColor, contentColor, size, ...props }) => {
+export const Button = ({ className, onClick, children, disabled, buttonColor, contentColor, size, ...props }) => {
   const handleClick = () => {
     if (disabled) return;
     onClick();
@@ -17,7 +17,7 @@ export const Button = ({ className, onClick, content, disabled, buttonColor, con
       {...props}
     >
       <span style={{ color: contentColor }} className={`Button-${className}-content`}>
-        {content}
+        {children}
       </span>
     </button>
   );
@@ -26,7 +26,6 @@ export const Button = ({ className, onClick, content, disabled, buttonColor, con
 Button.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func,
-  content: PropTypes.string,
   disabled: PropTypes.bool,
   buttonColor: PropTypes.string,
   contentColor: PropTypes.string,
@@ -36,7 +35,6 @@ Button.propTypes = {
 Button.defaultProps = {
   className: null,
   onClick: undefined,
-  content: 'Button',
   disabled: false,
   buttonColor: null,
   contentColor: null,

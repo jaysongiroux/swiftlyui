@@ -13,7 +13,6 @@
   height: 100%;
   z-index: 99;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-  // transition: 1s;
   &.right {
     right: 0;
     transform: translateX(110%);
@@ -39,6 +38,18 @@
   background-color: transparent;
   cursor: pointer;
   right: 0;
+  height: 30px;
+  width: 30px;
+  border-radius: 4px;
+  transition: .25s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  &:hover {
+    background-color: $hoverGray;
+  }
 }
 
 .SliderBackdrop {

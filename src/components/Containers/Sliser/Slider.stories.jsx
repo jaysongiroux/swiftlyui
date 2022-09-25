@@ -18,10 +18,13 @@ export default {
     displayBackdrop: true,
     duration: 300,
     escapeToClose: true,
+    sliderStyle: { backgroundColor: 'white' },
+    style: { color: 'white' },
+    closeStyle: null,
   },
 };
 
-export const SimpleSlider = ({ isOpen, onClose, ...args }) => {
+export const SliderExample = ({ isOpen, onClose, ...args }) => {
   const [{ value }, updateArgs] = useArgs();
   return (
     <div>

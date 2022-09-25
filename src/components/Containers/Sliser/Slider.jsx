@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import './Slider.scss';
 import { GrClose } from 'react-icons/gr';
 import { useEscape } from '../../Hooks/useEscape/useEscape';
+import { IconContext } from 'react-icons';
 
 export const Slider = ({
   className,
@@ -17,11 +18,19 @@ export const Slider = ({
   displayBackdrop,
   duration,
   escapeToClose,
-  ...props
+  sliderStyle,
+  closeStyle,
+  style,
+  closeContainerStyle,
 }) => {
   useEscape(escapeToClose, onClose);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+  }, [isOpen]);
+
   return (
-    <div className={cx('Slider', className)}>
+    <div className={cx('Slider', className)} style={style}>
       <div
         className={cx('SliderContainer', side, { isOpen })}
         style={{
@@ -29,19 +38,25 @@ export const Slider = ({
           transitionProperty: 'translate, transform, transformX',
           transitionDuration: `${duration / 1000}s`,
           overflowX: 'hidden',
+          ...sliderStyle,
         }}
-        {...props}
       >
         {showCloseIcon && (
-          <button className={cx('SliderCloseElement', side)} onClick={onClose}>
-            {closeElement ?? <GrClose />}
+          <button className={cx('SliderCloseElement', side)} style={closeContainerStyle} onClick={onClose}>
+            {closeElement ?? (
+              <IconContext.Provider value={{ ...closeStyle }} className="SliderCloseIcon">
+                <GrClose />
+              </IconContext.Provider>
+            )}
           </button>
         )}
         {children}
       </div>
-      <div className={cx('SliderBackdrop', { isOpen, isClosed: !isOpen })}>
-        {isOpen && <div onClick={onClose} className={cx('SliderClickableBackdrop', { isOpen })} />}
-      </div>
+      {displayBackdrop && (
+        <div className={cx('SliderBackdrop', { isOpen, isClosed: !isOpen })}>
+          {isOpen && <div onClick={onClose} className={cx('SliderClickableBackdrop', { isOpen })} />}
+        </div>
+      )}
     </div>
   );
 };
@@ -58,6 +73,15 @@ Slider.propTypes = {
   displayBackdrop: PropTypes.bool,
   duration: PropTypes.number,
   escapeToClose: PropTypes.bool,
+  sliderStyle: PropTypes.object,
+  closeStyle: PropTypes.shape({
+    color: PropTypes.string,
+    size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    title: PropTypes.string,
+    children: PropTypes.node,
+  }),
+  style: PropTypes.object,
+  closeContainerStyle: PropTypes.object,
 };
 
 Slider.defaultProps = {
@@ -72,4 +96,8 @@ Slider.defaultProps = {
   displayBackdrop: true,
   duration: 300,
   escapeToClose: true,
+  sliderStyle: {},
+  closeStyle: {},
+  style: {},
+  closeContainerStyle: {},
 };

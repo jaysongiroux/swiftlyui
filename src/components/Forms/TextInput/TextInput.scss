@@ -1,7 +1,7 @@
 @import '../../../styles/_colors.scss';
 
 .TextInput {
-  background-color: $white;
+  background-color: transparent;
   border: none;
   color: $black;
   font-size: 16px;
@@ -30,10 +30,6 @@
   }
 }
 
-.TextInputLabel {
-  margin-top: -16px;
-  .LabelText {
-    padding: 12px;
-    background-color: white;
-  }
+textarea {
+  resize: vertical;
 }

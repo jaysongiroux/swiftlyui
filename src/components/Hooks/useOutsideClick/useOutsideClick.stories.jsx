@@ -7,10 +7,11 @@ export default {
   args: {
     ref: null,
     handler: undefined,
+    enabled: true,
   },
 };
 
-export const UseOutsideClickExample = () => {
+export const UseOutsideClickExample = ({ enabled }) => {
   const [counter, setCounter] = useState(0);
   const [ref, setRef] = useState();
 
@@ -18,7 +19,7 @@ export const UseOutsideClickExample = () => {
     setCounter(counter + 1);
   };
 
-  useOutsideClick(ref, handleClick);
+  useOutsideClick(ref, handleClick, enabled);
 
   return (
     <div style={{ display: 'flex', width: '100%', height: '100vh', justifyContent: 'center', alignItems: 'center' }}>

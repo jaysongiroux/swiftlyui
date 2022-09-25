@@ -2,8 +2,9 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // Referenced from https://usehooks.com/useOnClickOutside/
-export const useOutsideClick = (ref, handler) => {
+export const useOutsideClick = (ref, handler, enabled) => {
   useEffect(() => {
+    if (!enabled) return;
     if (typeof window !== `undefined`) {
       const listener = (e) => {
         // Do nothing if clicking ref's element or descendent elements
@@ -36,9 +37,11 @@ export const useOutsideClick = (ref, handler) => {
 useOutsideClick.propTypes = {
   ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]),
   handler: PropTypes.func,
+  enabled: PropTypes.bool,
 };
 
 useOutsideClick.defaultProps = {
   ref: null,
   handler: undefined,
+  enabled: true,
 };

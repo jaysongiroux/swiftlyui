@@ -5,7 +5,7 @@ import { TextInput } from './TextInput';
 import { useArgs } from '@storybook/client-api';
 
 export default {
-  title: 'TextInput',
+  title: 'Forms/TextInput',
   component: TextInput,
   args: {
     className: 'textInputExampleClass',

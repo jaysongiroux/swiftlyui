@@ -2133,7 +2133,7 @@
     prop-types "^15.7.2"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addons@6.5.12":
+"@storybook/addons@6.5.12", "@storybook/addons@^6.5.12":
   version "6.5.12"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-6.5.12.tgz#891767b5f88ea99b956cf19e9e2893594068adc7"
   integrity sha512-y3cgxZq41YGnuIlBJEuJjSFdMsm8wnvlNOGUP9Q+Er2dgfx8rJz4Q22o4hPjpvpaj4XdBtxCJXI2NeFpN59+Cw==
@@ -2837,7 +2837,7 @@
     "@testing-library/user-event" "^13.2.1"
     ts-dedent "^2.2.0"
 
-"@storybook/theming@6.5.12":
+"@storybook/theming@6.5.12", "@storybook/theming@^6.5.12":
   version "6.5.12"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.5.12.tgz#7df1b52913d49c5e84fc1f2e837c02d9fa8cc639"
   integrity sha512-uWOo84qMQ2R6c1C0faZ4Q0nY01uNaX7nXoJKieoiJ6ZqY9PSYxJl1kZLi3uPYnrxLZjzjVyXX8MgdxzbppYItA==
@@ -11711,6 +11711,11 @@ react-error-overlay@^6.0.11:
   version "6.0.11"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.11.tgz#92835de5841c5cf08ba00ddd2d677b6d17ff9adb"
   integrity sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==
+
+react-icons@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.4.0.tgz#a13a8a20c254854e1ec9aecef28a95cdf24ef703"
+  integrity sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg==
 
 react-inspector@^5.1.0:
   version "5.1.1"

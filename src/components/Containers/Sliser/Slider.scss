@@ -1,0 +1,73 @@
+@import '../../../styles/_colors.scss';
+
+.Slider {
+  overflow-y: scroll;
+}
+
+.SliderContainer {
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  color: black;
+  height: 100%;
+  z-index: 99;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  // transition: 1s;
+  &.right {
+    right: 0;
+    transform: translateX(110%);
+    &.isOpen {
+        transform: translateX(0);
+      }
+  }
+
+  &.left {
+    left: 0;
+    transform: translateX(-110%);
+    &.isOpen {
+        transform: translateX(0);
+      }
+  }
+}
+
+.SliderCloseElement {
+  top: 0;
+  position: absolute;
+  margin: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  right: 0;
+}
+
+.SliderBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  z-index: 98;
+  transition: 0.25s;
+  pointer-events: none;
+  pointer-events: none;
+
+  &.isOpen {
+    opacity: 1;
+    z-index: 98;
+    pointer-events: all;
+  }
+}
+
+.SliderClickableBackdrop {
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  pointer-events: none;
+
+  &.isOpen {
+    pointer-events: all;
+  }
+}

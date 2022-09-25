@@ -28,6 +28,10 @@
     padding: 15px 30px;
   }
 
+  &:focus {
+    outline: none;
+  }
+
   &.disabled {
     background-color: $disabledColor;
     color: $disabledText;

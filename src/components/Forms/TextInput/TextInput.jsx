@@ -22,8 +22,8 @@ export const TextInput = ({
   };
   const Input = type === 'textarea' ? 'textarea' : 'input';
   return (
-    <>
-      <Label disabled={disabled}>{label}</Label>
+    <div className="TextInputContainer">
+      <Label className="TextInputLabel" disabled={disabled}>{label}</Label>
       <Input
         ref={ref}
         value={value}
@@ -35,7 +35,7 @@ export const TextInput = ({
         rows={rows}
         {...props}
       />
-    </>
+    </div>
   );
 };
 

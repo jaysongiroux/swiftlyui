@@ -2,26 +2,38 @@
 
 .TextInput {
   background-color: $white;
-  border: 1px solid $disabledColor;
-  border-radius: 4px;
+  border: none;
   color: $black;
   font-size: 16px;
-  padding: 8px 16px;
-  width: 100%;
+  width: 95%;
   transition: .25s;
+  &:focus {
+    outline: none;
+  }
+}
 
-  &:disabled {
-    // background-color: $disabledColor;
+.TextInputContainer{
+  width: 100%;
+  border: 1px solid $PrimaryColor;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+
+  &.TextInput:disabled {
     color: $disabledTextGray;
     border-color: $disabledTextGray;
   }
 
-  &:focus {
-    border-color: $PrimaryColor;
-    outline: none;
-  }
-
   &:not(:disabled):hover {
     border-color: $PrimaryColorHover;
+  }
+}
+
+.TextInputLabel {
+  margin-top: -16px;
+  .LabelText {
+    padding: 12px;
+    background-color: white;
   }
 }

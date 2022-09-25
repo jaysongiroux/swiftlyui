@@ -16,7 +16,7 @@ export const Button = ({ className, onClick, content, disabled, buttonColor, con
       style={buttonColor && { backgroundColor: buttonColor }}
       {...props}
     >
-      <span style={{ color: contentColor }} className={`${className}-content`}>
+      <span style={{ color: contentColor }} className={`Button-${className}-content`}>
         {content}
       </span>
     </button>

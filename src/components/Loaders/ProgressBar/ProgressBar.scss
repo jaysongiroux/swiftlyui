@@ -1,0 +1,14 @@
+@import '../../../styles/_colors.scss';
+
+.ProgressBar {
+  width: 100%;
+  background-color: $gray;
+  border-radius: 2px;
+}
+
+.ProgressBarFill {
+  background-color: $PrimaryColor;
+  height: 100%;
+  transition: all 0.4s;
+  border-radius: 2px;
+}

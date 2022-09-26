@@ -34,7 +34,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   className: null,
-  onClick: undefined,
+  onClick: () => {},
   disabled: false,
   buttonColor: null,
   contentColor: null,

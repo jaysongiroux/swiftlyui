@@ -23,7 +23,6 @@ jobs:
         with:
           node-version: "18.x"
           registry-url: "https://registry.npmjs.org"
-          scope: '@jaysongiroux'
       # Run yarn install to install project packages
       - run: yarn install
       # yarn build to build the project

@@ -32,4 +32,5 @@ jobs:
       # for publishing, npm need authorization. We add the NPM token to the environment which will take care of authorization to publish to the package
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
 

@@ -21,12 +21,12 @@ jobs:
       # Setup node with version 12.x and NPM registry url
       - uses: actions/setup-node@v1
         with:
-          node-version: "18.x"
+          node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
       # Run yarn install to install project packages
-      - run: yarn install
+      - run: npm ci
       # yarn build to build the project
-      - run: yarn build
+      - run: npm run build
       # publish the files to NPM
       - run: npm publish
       # for publishing, npm need authorization. We add the NPM token to the environment which will take care of authorization to publish to the package

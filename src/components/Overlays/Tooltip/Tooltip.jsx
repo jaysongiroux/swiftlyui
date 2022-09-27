@@ -3,7 +3,7 @@ import ReactTooltip from 'react-tooltip';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { AiOutlineInfoCircle, AiOutlineCheckCircle, AiOutlineWarning } from 'react-icons/ai';
-import { BiErrorCircle } from 'react-icons/bi';
+import { BiErrorCircle, BiHelpCircle } from 'react-icons/bi';
 import './Tooltip.scss';
 
 export const Tooltip = ({
@@ -24,6 +24,8 @@ export const Tooltip = ({
         return <AiOutlineWarning data-tip="React-tooltip" size={hoverElementSize} className="Tooltip-warning" />;
       case 'error':
         return <BiErrorCircle data-tip="React-tooltip" size={hoverElementSize} className="Tooltip-error" />;
+      case 'help':
+        return <BiHelpCircle data-tip="React-tooltip" size={hoverElementSize} className="Tooltip-help" />;
       default:
       case 'info':
         return <AiOutlineInfoCircle data-tip="React-tooltip" size={hoverElementSize} className="Tooltip-info" />;
@@ -50,7 +52,7 @@ Tooltip.propTypes = {
   place: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   TooltipType: PropTypes.oneOf(['dark', 'success', 'warning', 'error', 'info', 'light']),
   effect: PropTypes.oneOf(['float', 'solid']),
-  HoverElementType: PropTypes.oneOf(['success', 'warning', 'error', 'info']),
+  HoverElementType: PropTypes.oneOf(['success', 'warning', 'error', 'info', 'help']),
   hoverElementSize: PropTypes.string,
   hoverElement: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };

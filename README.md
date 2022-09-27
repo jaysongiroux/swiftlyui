@@ -1,6 +1,6 @@
 <!-- markdownlint-disable-next-line -->
 <p align="center">
-<img src="./../swiftlyui/public/SWIFTLY-UI.png" alt="drawing" width="200"/>
+<img src="https://github.com/jaysongiroux/swiftlyui/blob/master/public/SWIFTLY-UI.png" alt="drawing" width="200"/>
 </p>
 
 # Swiftly-UI *(In development)*

@@ -5,6 +5,6 @@ export * from './Containers/Slider/Slider';
 export * from './Hooks/useEscape/useEscape';
 export * from './Hooks/useOutsideClick/useOutsideClick';
 export * from './Loaders/ProgressBar/ProgressBar';
-export * from './Loaders/spinner/Spinner';
+export * from './Loaders/Spinner/Spinner';
 export * from './Overlays/Tooltip/Tooltip';
 export * from './Nav/NavBar/NavBar';

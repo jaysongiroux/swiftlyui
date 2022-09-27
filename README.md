@@ -1,7 +1,5 @@
 <!-- markdownlint-disable-next-line -->
-<p align="center">
-<img src="https://github.com/jaysongiroux/swiftlyui/blob/master/public/SWIFTLY-UI.png" alt="drawing" width="200"/>
-</p>
+<p align="center"><img src="https://github.com/jaysongiroux/swiftlyui/blob/master/public/SWIFTLY-UI.png" alt="drawing" width="200"/></p>
 
 # Swiftly-UI *(In development)*
 A lightweight, accessible and responsive react component library for your next project.

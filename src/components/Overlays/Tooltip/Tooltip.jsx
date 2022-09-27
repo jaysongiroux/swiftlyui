@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Children, useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
@@ -14,21 +14,58 @@ export const Tooltip = ({
   HoverElementType,
   hoverElementSize,
   hoverElement,
+  hoverElementColor,
+  children,
   ...props
 }) => {
   const getHoverElement = () => {
     switch (HoverElementType) {
       case 'success':
-        return <AiOutlineCheckCircle data-tip="React-tooltip" size={hoverElementSize} className="Tooltip-success" />;
+        return (
+          <AiOutlineCheckCircle
+            color={hoverElementColor}
+            data-tip="React-tooltip"
+            size={hoverElementSize}
+            className="Tooltip-success"
+          />
+        );
       case 'warning':
-        return <AiOutlineWarning data-tip="React-tooltip" size={hoverElementSize} className="Tooltip-warning" />;
+        return (
+          <AiOutlineWarning
+            color={hoverElementColor}
+            data-tip="React-tooltip"
+            size={hoverElementSize}
+            className="Tooltip-warning"
+          />
+        );
       case 'error':
-        return <BiErrorCircle data-tip="React-tooltip" size={hoverElementSize} className="Tooltip-error" />;
+        return (
+          <BiErrorCircle
+            color={hoverElementColor}
+            data-tip="React-tooltip"
+            size={hoverElementSize}
+            className="Tooltip-error"
+          />
+        );
       case 'help':
-        return <BiHelpCircle data-tip="React-tooltip" size={hoverElementSize} className="Tooltip-help" />;
+        return (
+          <BiHelpCircle
+            color={hoverElementColor}
+            data-tip="React-tooltip"
+            size={hoverElementSize}
+            className="Tooltip-help"
+          />
+        );
       default:
       case 'info':
-        return <AiOutlineInfoCircle data-tip="React-tooltip" size={hoverElementSize} className="Tooltip-info" />;
+        return (
+          <AiOutlineInfoCircle
+            color={hoverElementColor}
+            data-tip="React-tooltip"
+            size={hoverElementSize}
+            className="Tooltip-info"
+          />
+        );
     }
   };
 
@@ -42,7 +79,9 @@ export const Tooltip = ({
         getHoverElement()
       )}
 
-      <ReactTooltip place={place} type={TooltipType} effect={effect} {...props} />
+      <ReactTooltip place={place} type={TooltipType} effect={effect} {...props}>
+        {children}
+      </ReactTooltip>
     </div>
   );
 };
@@ -55,6 +94,7 @@ Tooltip.propTypes = {
   HoverElementType: PropTypes.oneOf(['success', 'warning', 'error', 'info', 'help']),
   hoverElementSize: PropTypes.string,
   hoverElement: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  hoverElementColor: PropTypes.string,
 };
 
 Tooltip.defaultProps = {
@@ -65,4 +105,5 @@ Tooltip.defaultProps = {
   HoverElementType: null,
   hoverElementSize: null,
   hoverElement: null,
+  hoverElementColor: null,
 };

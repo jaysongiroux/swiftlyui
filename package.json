@@ -2,9 +2,14 @@
   "name": "swiftlyui",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaysongiroux/swiftlyui.git"
+    "url": "git+https://github.com/jaysongiroux/swiftlyui.git"
   },
-  "version": "0.1.1",
+  "main": "build",
+  "files": [
+    "build",
+    "README.md"
+  ],
+  "version": "0.1.3",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.5",
@@ -22,7 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
@@ -62,6 +67,13 @@
     "webpack": "^5.74.0"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  }
+    "registry": "https://registry.npmjs.org/"
+  },
+  "description": "<!-- markdownlint-disable-next-line --> <p align=\"center\"><img src=\"https://github.com/jaysongiroux/swiftlyui/blob/master/public/SWIFTLY-UI.png\" alt=\"drawing\" width=\"200\"/></p>",
+  "bugs": {
+    "url": "https://github.com/jaysongiroux/swiftlyui/issues"
+  },
+  "homepage": "https://github.com/jaysongiroux/swiftlyui#readme",
+  "author": "jason giroux",
+  "license": "MIT"
 }

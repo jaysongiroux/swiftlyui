@@ -4,6 +4,12 @@
 # SwiftlyUI *(In development)*
 A lightweight, accessible and responsive react component library for your next project.
 
+![Master Branch CICD](https://github.com/jaysongiroux/swiftlyui/actions/workflows/main.yml/badge.svg?branch=master)
+![GitHub commits since latest release (by date) for a branch](https://img.shields.io/github/commits-since/jaysongiroux/swiftlyui/latest/master)
+![GitHub Release Date](https://img.shields.io/github/release-date/jaysongiroux/swiftlyui)
+[![npm version](https://badge.fury.io/js/swiftlyui.svg)](https://badge.fury.io/js/swiftlyui)
+
+
 # Installation 
 ## npm: 
 ```

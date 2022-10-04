@@ -1,0 +1,244 @@
+.Button {
+  background-color: #3f51b5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.Button:hover {
+  background-color: #303f9f;
+}
+.Button.small {
+  font-size: 12px;
+  padding: 10px 15px;
+}
+.Button.medium {
+  font-size: 14px;
+  padding: 10px 20px;
+}
+.Button.large {
+  font-size: 18px;
+  padding: 15px 30px;
+}
+.Button:focus {
+  outline: none;
+}
+.Button.disabled {
+  background-color: #d6d6d6;
+  color: white;
+  cursor: not-allowed;
+}
+.Label {
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  display: block;
+  padding: 0;
+  border: none;
+  margin-bottom: 4px;
+  font-family: "Roboto", sans-serif;
+}
+.Label.disabled {
+  color: #9e9e9e;
+}
+
+.LabelText {
+  padding-right: 8px;
+}
+.TextInput {
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 16px;
+  width: 95%;
+  transition: 0.25s;
+}
+.TextInput:focus {
+  outline: none;
+}
+
+.TextInputContainer {
+  width: 100%;
+  border: 1px solid #3f51b5;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+.TextInputContainer.TextInput:disabled {
+  color: #9e9e9e;
+  border-color: #9e9e9e;
+}
+.TextInputContainer:not(:disabled):hover {
+  border-color: #303f9f;
+}
+
+textarea {
+  resize: vertical;
+}
+.Slider {
+  overflow-y: scroll;
+}
+
+.SliderContainer {
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  color: black;
+  height: 100%;
+  z-index: 99;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.SliderContainer.right {
+  right: 0;
+  transform: translateX(110%);
+}
+.SliderContainer.right.isOpen {
+  transform: translateX(0);
+}
+.SliderContainer.left {
+  left: 0;
+  transform: translateX(-110%);
+}
+.SliderContainer.left.isOpen {
+  transform: translateX(0);
+}
+
+.SliderCloseElement {
+  top: 0;
+  position: absolute;
+  margin: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  right: 0;
+  height: 30px;
+  width: 30px;
+  border-radius: 4px;
+  transition: 0.25s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.SliderCloseElement:hover {
+  background-color: #f1f1f1;
+}
+
+.SliderBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  z-index: 98;
+  transition: 0.25s;
+  pointer-events: none;
+  pointer-events: none;
+}
+.SliderBackdrop.isOpen {
+  opacity: 1;
+  z-index: 98;
+  pointer-events: all;
+}
+
+.SliderClickableBackdrop {
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  pointer-events: none;
+}
+.SliderClickableBackdrop.isOpen {
+  pointer-events: all;
+}
+.ProgressBar {
+  width: 100%;
+  background-color: #9e9e9e;
+  border-radius: 2px;
+}
+
+.ProgressBarFill {
+  background-color: #3f51b5;
+  height: 100%;
+  transition: all 0.4s;
+  border-radius: 2px;
+}
+.Spinner {
+  display: flex;
+  justify-content: center;
+}
+.Spinner.small {
+  height: 50px;
+}
+.Spinner.medium {
+  height: 100px;
+}
+.Spinner.large {
+  height: 150px;
+}
+
+.SpinnerSVG {
+  width: 50%;
+  max-width: 10rem;
+  animation: rotate 3.6s linear infinite;
+}
+
+.SpinnerCircle {
+  fill: none;
+  stroke: #3f51b5;
+  stroke-width: 8px;
+  stroke-dasharray: 300;
+  animation: outline 2s cubic-bezier(0.77, 0, 0.18, 1) infinite;
+}
+
+@keyframes outline {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dashoffset: 300;
+  }
+  100% {
+    stroke-dashoffset: 600;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(-1turn);
+  }
+}
+
+
+.NavBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #3f51b5;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.NavBar.sticky {
+  position: fixed;
+  z-index: 99;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}

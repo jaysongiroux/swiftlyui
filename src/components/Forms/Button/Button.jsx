@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import './Button.scss';
 
-export const Button = ({ className, onClick, children, disabled, buttonColor, contentColor, size, ...props }) => {
+const Button = ({ className, onClick, children, disabled, buttonColor, contentColor, size, ...props }) => {
   const handleClick = () => {
     if (disabled) return;
     onClick();
@@ -40,3 +40,5 @@ Button.defaultProps = {
   contentColor: null,
   size: 'medium',
 };
+
+export default Button;

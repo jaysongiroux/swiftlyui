@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export const useEscape = (enabled, handler) => {
+const useEscape = (enabled, handler) => {
   useEffect(() => {
     if (typeof window !== `undefined`) {
       const keyboardListener = (e) => {
@@ -28,3 +28,5 @@ useEscape.defaultProps = {
   enabled: true,
   handler: undefined,
 };
+
+export default useEscape;

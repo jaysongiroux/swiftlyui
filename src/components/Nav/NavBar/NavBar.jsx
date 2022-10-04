@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import './NavBar.scss';
 
-export const NavBar = ({ className, children, sticky, style, ...props }) => {
+const NavBar = ({ className, children, sticky, style, ...props }) => {
   return (
     <div {...props} style={style} className={cx('NavBar', className, { sticky })}>
       {children}
@@ -24,3 +24,5 @@ NavBar.defaultProps = {
   sticky: false,
   style: {},
 };
+
+export default NavBar;

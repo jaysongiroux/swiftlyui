@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 
 import './Label.scss';
 
-export const Label = ({ children, disabled, ...props }) => {
+const Label = ({ children, disabled, ...props }) => {
   return (
     <label {...props} className={cx('Label', props.className, { disabled })}>
       <span className={'LabelText'}>{children}</span>
     </label>
   );
 };
+
+export default Label;
 
 Label.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),

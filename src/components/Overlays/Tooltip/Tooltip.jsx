@@ -6,7 +6,7 @@ import { AiOutlineInfoCircle, AiOutlineCheckCircle, AiOutlineWarning } from 'rea
 import { BiErrorCircle, BiHelpCircle } from 'react-icons/bi';
 import './Tooltip.scss';
 
-export const Tooltip = ({
+const Tooltip = ({
   className,
   place,
   TooltipType,
@@ -107,3 +107,5 @@ Tooltip.defaultProps = {
   hoverElement: null,
   hoverElementColor: null,
 };
+
+export default Tooltip;

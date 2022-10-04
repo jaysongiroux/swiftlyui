@@ -1,23 +1,25 @@
 <!-- markdownlint-disable-next-line -->
 <p align="center"><img src="https://github.com/jaysongiroux/swiftlyui/blob/master/public/SWIFTLY-UI.png" alt="drawing" width="200"/></p>
 
-# Swiftly-UI *(In development)*
+# SwiftlyUI *(In development)*
 A lightweight, accessible and responsive react component library for your next project.
 
 # Installation 
 ## npm: 
 ```
-npm install swiftly-ui
+npm install swiftlyui
 ```
 ## yarn: 
 ```
-yarn add swiftly-ui
+yarn add swiftlyui
 ```
 
-# Getting started with Swiftly-UI
+# Getting started with SwiftlyUI
+`index.css` Needs to be imported in your project for swiftlyUI's styles to be applied to each of the components. `index.css` needs to be imported once in the project, it is recommended that `swiftlyui/index.css` is imported at the base of your project.
 ```js
 import React from 'react';
-import {Button} from 'swiftly-ui'
+import { Button } from 'swiftlyui'
+import 'swiftlyui/index.css'
 
 function App(){
   return (
@@ -45,4 +47,3 @@ Future plans for the library are to fill Swiftly-UI with more accessible compone
 
 # License 
 This project is licensed under the terms of the [MIT License](https://github.com/mui/material-ui/blob/master/LICENSE)
-

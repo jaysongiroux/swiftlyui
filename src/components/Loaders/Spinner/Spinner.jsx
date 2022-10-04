@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './Spinner.scss';
 import '../../../styles/_colors.scss';
 
-export const Spinner = ({ className, size, color, style }) => {
+const Spinner = ({ className, size, color, style }) => {
   return (
     <div className={cx('Spinner', className, size)} style={style}>
       <svg className="SpinnerSVG" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -27,3 +27,5 @@ Spinner.defaultProps = {
   style: {},
   color: null,
 };
+
+export default Spinner;

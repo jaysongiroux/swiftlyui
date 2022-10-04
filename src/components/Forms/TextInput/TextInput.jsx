@@ -2,9 +2,9 @@ import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import './TextInput.scss';
-import { Label } from '../Label/Label';
+import Label from '../Label/Label';
 
-export const TextInput = ({
+const TextInput = ({
   className,
   type,
   value,
@@ -85,3 +85,5 @@ TextInput.defaultProps = {
   labelPosition: 'top',
   labelStyle: {},
 };
+
+export default TextInput;

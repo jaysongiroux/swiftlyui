@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import './ProgressBar.scss';
 
-export const ProgressBar = ({ className, steps, curStep, height, style }) => {
+const ProgressBar = ({ className, steps, curStep, height, style }) => {
   const widthCalc = (curStep / steps) * 100;
   let widthFill;
 
@@ -33,3 +33,5 @@ ProgressBar.defaultProps = {
   curStep: null,
   height: '4px',
 };
+
+export default ProgressBar;

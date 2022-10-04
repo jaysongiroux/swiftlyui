@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import './Slider.scss';
 import { GrClose } from 'react-icons/gr';
-import { useEscape } from '../../Hooks/useEscape/useEscape';
+import useEscape from '../../Hooks/useEscape/useEscape';
 import { IconContext } from 'react-icons';
 
-export const Slider = ({
+const Slider = ({
   className,
   side,
   onClose,
@@ -101,3 +101,5 @@ Slider.defaultProps = {
   style: {},
   closeContainerStyle: {},
 };
+
+export default Slider;

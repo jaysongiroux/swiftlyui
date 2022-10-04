@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // Referenced from https://usehooks.com/useOnClickOutside/
-export const useOutsideClick = (ref, handler, enabled) => {
+const useOutsideClick = (ref, handler, enabled) => {
   useEffect(() => {
     if (!enabled) return;
     if (typeof window !== `undefined`) {
@@ -45,3 +45,5 @@ useOutsideClick.defaultProps = {
   handler: undefined,
   enabled: true,
 };
+
+export default useOutsideClick;

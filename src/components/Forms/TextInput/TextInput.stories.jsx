@@ -1,7 +1,7 @@
 // TextInput.stories.js|ts|jsx|tsx
 
 import React from 'react';
-import { TextInput } from './TextInput';
+import TextInput from './TextInput';
 import { useArgs } from '@storybook/client-api';
 
 export default {

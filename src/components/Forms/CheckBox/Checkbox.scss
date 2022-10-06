@@ -1,3 +1,60 @@
+@import '../../../styles/colors';
+
 .CheckBox {
-  
+  display: inline-flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  &:hover {
+    &:not(.isDisabled) {
+      .CheckBoxInputContainer {
+        box-shadow: 0 0 3px 0 $PrimaryColor;
+      }
+      .default-icon {
+        box-shadow: 0 0 1px 0 $PrimaryColor;
+      }
+    }
+  }
+
+  &.default-icon {
+    background-color: $PrimaryColor;
+    border-radius: 3px;
+    padding: 5px;
+    transition: box-shadow $cardHoverAnimationDuration+s ease-in-out;
+  }
+}
+
+.CheckBoxInputContainer {
+  border-color: $PrimaryColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow $cardHoverAnimationDuration+s ease-in-out;
+
+  &.isDisabled {
+    border-color: $disabledColor;
+  }
+}
+
+.CheckBoxLabel {
+  margin: 4px;
+  &.isDisabled {
+    color: $disabledTextGray;
+  }
+}
+
+.CheckBoxInputIcon {
+  display: flex;
+  opacity: 0;
+  transform: scale(0);
+  transition: .25s;
+  &.isDisabled {
+    .default-icon {
+      background-color: $disabledColor;
+    }
+  }
+  &.shouldRender {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

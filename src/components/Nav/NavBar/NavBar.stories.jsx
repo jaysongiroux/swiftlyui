@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from '../../Forms/Button/Button';
-import { NavBar } from './NavBar';
+import Button from '../../Forms/Button/Button';
+import NavBar from './NavBar';
 
 export default {
   title: 'Nav/NavBar',

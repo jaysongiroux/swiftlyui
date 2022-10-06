@@ -19,14 +19,17 @@
 
 .RadioButtonInput {
   display: none;
+  outline-offset: 10px;
+  transition: outline-offset $cardHoverAnimationDuration+s;
 
   &:checked+.RadioButtonCustom {
     outline-color: white;
     outline-offset: -4px;
     outline-width: 2px;
     background-color: $PrimaryColor;
-    transition: background $cardHoverAnimationDuration ease-out;
+    transition: background-color $cardHoverAnimationDuration ease-out;
     transition: outline $cardHoverAnimationDuration ease-out;
+    transition: outline-offset $cardHoverAnimationDuration+s;
   }
 
   &:disabled {

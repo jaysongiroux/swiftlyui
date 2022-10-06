@@ -1,3 +1,6 @@
+body {
+  font-family: Arial, sans-serif;
+}
 .Button {
   background-color: #3f51b5;
   color: white;
@@ -241,4 +244,342 @@ textarea {
   position: fixed;
   z-index: 99;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.CheckBox {
+  display: inline-flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+.CheckBox:hover:not(.isDisabled) .CheckBoxInputContainer {
+  box-shadow: 0 0 3px 0 #3f51b5;
+}
+.CheckBox:hover:not(.isDisabled) .default-icon {
+  box-shadow: 0 0 1px 0 #3f51b5;
+}
+.CheckBox.default-icon {
+  background-color: #3f51b5;
+  border-radius: 3px;
+  padding: 5px;
+  transition: box-shadow 0.25s ease-in-out;
+}
+
+.CheckBoxInputContainer {
+  border-color: #3f51b5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out;
+}
+.CheckBoxInputContainer.isDisabled {
+  border-color: #d6d6d6;
+}
+
+.CheckBoxLabel {
+  margin: 4px;
+}
+.CheckBoxLabel.isDisabled {
+  color: #9e9e9e;
+}
+
+.CheckBoxInputIcon {
+  display: flex;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.25s;
+}
+.CheckBoxInputIcon.isDisabled .default-icon {
+  background-color: #d6d6d6;
+}
+.CheckBoxInputIcon.shouldRender {
+  transform: scale(1);
+  opacity: 1;
+}
+.RadioButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  font-size: 16px;
+  line-height: 1.5em;
+  cursor: pointer;
+  margin-right: 8px;
+}
+.RadioButton.disabled {
+  color: #9e9e9e;
+  cursor: default;
+}
+
+.RadioButtonInput {
+  display: none;
+  outline-offset: 10px;
+  transition: outline-offset 0.25s;
+}
+.RadioButtonInput:checked + .RadioButtonCustom {
+  outline-color: white;
+  outline-offset: -4px;
+  outline-width: 2px;
+  background-color: #3f51b5;
+  transition: background-color 0.25 ease-out;
+  transition: outline 0.25 ease-out;
+  transition: outline-offset 0.25s;
+}
+.RadioButtonInput:disabled:checked + .RadioButtonCustom {
+  background-color: #9e9e9e;
+}
+.RadioButtonInput:disabled:not(:checked) + .RadioButtonCustom {
+  border-color: #9e9e9e;
+  outline-color: #9e9e9e;
+}
+.RadioButtonInput:disabled:not(:checked) + .RadioButtonCustom:hover {
+  box-shadow: none;
+}
+
+.RadioButtonCustom {
+  position: relative;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  margin-right: 8px;
+  background-color: white;
+  border-radius: 50%;
+  outline-offset: -2px;
+  outline: 2px solid #3f51b5;
+  box-shadow: 0px 0px 4px transparent;
+  transition: background 0.25 ease-in;
+  transition: box-shadow 0.25 ease-in;
+  box-sizing: border-box;
+}
+.RadioButtonCustom:after {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 3px;
+  left: 3px;
+  height: 7px;
+  width: 10px;
+  transition: transform 0.25 ease-in;
+  box-sizing: border-box;
+}
+.RadioButtonCustom:hover {
+  box-shadow: 0 0 4px 2px #303f9f;
+}
+
+.RadioButtonDisplayLabel {
+  flex-grow: 1;
+}
+
+.RadioButtonSetOptionsContainer.isInline {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.RadioButtonSetOptionsContainer.isInline .withHelp {
+  margin-right: 16px;
+}
+.RadioButtonSetOptionsContainer.isInline .RadioButtonSetLabel {
+  width: 100%;
+}
+
+.RadioButtonSetItem {
+  padding: 10px;
+  box-sizing: border-box;
+}
+.RadioButtonSetItem.withHelp {
+  max-width: 375px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  border: solid 2px #fff;
+  margin: 8px 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+.RadioButtonSetItem.withHelp.disabled {
+  cursor: default;
+}
+.RadioButtonSetItem.withHelp:hover:not(.disabled), .RadioButtonSetItem.withHelp.checked:not(.disabled) {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  border-color: #3f51b5;
+  color: #3f51b5;
+}
+.RadioButtonSetItem.withHelp .RadioButtonDisplayLabel {
+  display: flex;
+  margin-left: 8px;
+}
+
+.RadioButtonSetLabelText.hasHelp {
+  margin-right: 25px;
+}
+
+.RadioButtonSetTooltip {
+  position: absolute;
+  margin: 10px;
+  top: 0;
+  right: 0;
+}
+
+.RadioButtonSetRadioButtonLabel {
+  width: 75%;
+}
+.IconCard {
+  background: #fff;
+  padding: 20px;
+  padding-bottom: 30px;
+  text-align: left;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+.IconCard .IconCardIcon {
+  color: #3f51b5;
+  font-size: 1.6em;
+}
+
+.IconCardHeader {
+  font-size: 1.3em;
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.IconCardContent {
+  line-height: 1.4;
+}
+/*
+The respond mixin is used to handle media queries for screen size
+based on the above breakpoints. The most common use will be
+respond("sm") for phone devices and respond("md") for tablets.
+*/
+.CardGroup {
+  overflow: visible;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+.CardGroupHeader {
+  font-weight: 600;
+  font-size: 28px;
+  margin: 1em 0;
+}
+@media (max-width: 767px) {
+  .CardGroupHeader {
+    text-align: center !important;
+  }
+}
+
+.CardGroupText {
+  font-weight: normal;
+  font-size: 18px;
+  margin: -1em 0 2em 0;
+}
+@media (max-width: 767px) {
+  .CardGroupText {
+    text-align: center !important;
+  }
+}
+
+.CardGroupContentWrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+/*
+The respond mixin is used to handle media queries for screen size
+based on the above breakpoints. The most common use will be
+respond("sm") for phone devices and respond("md") for tablets.
+*/
+.QuoteCard {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  background-color: white;
+  border: 2px solid #d6d6d6;
+  border-radius: 4px;
+  padding: 0;
+  text-align: left !important;
+  overflow: visible;
+  padding: 20px;
+}
+.QuoteCard blockquote {
+  line-height: 1.4285em;
+  color: #697891;
+  font-size: 1rem;
+  font-style: oblique;
+  margin: 1em 0;
+}
+@media (max-width: 500px) {
+  .QuoteCard {
+    width: 100% !important;
+  }
+}
+.QuoteCard:hover, .QuoteCard:active {
+  box-shadow: 0 0 18px 0px rgba(35, 67, 144, 0.2);
+}
+
+.QuoteCardLink {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none !important;
+  color: #0f172a;
+}
+
+.QuoteCardProfile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 4px 0 1px 0;
+}
+.QuoteCardProfile .QuoteCardProfilePic {
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+  object-fit: cover;
+}
+.QuoteCardProfile .QuoteCardText {
+  height: auto;
+  color: #3f51b5;
+  margin: 0 0 0.3125em 0;
+  line-height: 1.4em;
+  margin-bottom: 0.5em;
+  font-family: "Muli", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.QuoteCardLocation {
+  color: #0f172a;
+  text-transform: none;
+}
+
+.QuoteCardCornerBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out;
+}
+.QuoteCardCornerBtn i {
+  color: #3f51b5;
+  transition: color 0.25s ease-in-out;
+  font-size: 24px;
+}
+a:hover .QuoteCardCornerBtn {
+  background-color: #3f51b5 !important;
+  color: white;
+  transition: background-color 0.25s ease-in-out;
+}
+a:hover .QuoteCardCornerBtn i {
+  color: white;
+  transition: color 0.25s ease-in-out;
 }

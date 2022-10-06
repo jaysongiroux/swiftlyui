@@ -1,6 +1,6 @@
 import React from 'react';
-import { Slider } from './Slider';
-import { Button } from '../../Forms/Button/Button';
+import Slider  from './Slider';
+import  Button  from '../../Forms/Button/Button';
 import { useArgs } from '@storybook/client-api';
 
 export default {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useArgs } from '@storybook/client-api';
-import { RadioButtonSet } from './RadioButtonSet';
+import RadioButtonSet from './RadioButtonSet';
 
 export default {
   title: 'Forms/RadioButtonSet',

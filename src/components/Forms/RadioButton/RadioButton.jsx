@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import './RadioButton.scss';
 
-export const RadioButton = ({ label, name, value, checked = false, disabled = false, className, onChange, style }) => {
+const RadioButton = ({ label, name, value, checked = false, disabled = false, className, onChange, style }) => {
   const id = name + '-' + value;
   const handleChange = () => {
     onChange(!checked, name, value);
@@ -59,3 +59,5 @@ RadioButton.defaultProps = {
   onChange: () => {},
   style: {},
 };
+
+export default RadioButton;

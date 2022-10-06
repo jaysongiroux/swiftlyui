@@ -1,22 +1,12 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import { Tooltip } from '../../Overlays/Tooltip/Tooltip';
-import { Label } from '../Label/Label';
-import { RadioButton } from './RadioButton';
+import Tooltip from '../../Overlays/Tooltip/Tooltip';
+import Label from '../Label/Label';
+import RadioButton from './RadioButton';
 import './RadioButton.scss';
 
-export const RadioButtonSet = ({
-  value = '',
-  label,
-  inline = false,
-  disabled = false,
-  name,
-  options = [],
-  onChange,
-  className,
-  helpTipOptions,
-}) => {
+const RadioButtonSet = ({ value, label, inline, disabled, name, options, onChange, className, helpTipOptions }) => {
   const withHelp = !!options.find((opt) => {
     return opt.helptip;
   });
@@ -107,3 +97,5 @@ RadioButtonSet.defaultProps = {
   className: '',
   helpTipOptions: {},
 };
+
+export default RadioButtonSet;

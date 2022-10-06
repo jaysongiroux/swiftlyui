@@ -6,4 +6,5 @@ export default create({
   brandUrl: 'https://github.com/jaysongiroux/swiftlyui',
   brandImage: 'https://github.com/jaysongiroux/swiftlyui/raw/master/public/SWIFTLY-UI.png',
   brandTarget: '_self',
+  fontBase: 'arial, sans-serif',
 });

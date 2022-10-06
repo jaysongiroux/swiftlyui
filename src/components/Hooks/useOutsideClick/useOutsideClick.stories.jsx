@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useOutsideClick } from './useOutsideClick';
+import  useOutsideClick from './useOutsideClick';
 
 export default {
   title: 'Hooks/useOutsideClick',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEscape } from './useEscape';
+import useEscape from './useEscape';
 import { useArgs } from '@storybook/client-api';
 
 export default {

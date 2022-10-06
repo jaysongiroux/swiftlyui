@@ -1,0 +1,29 @@
+// Breakpoints are desktop-first
+// These match the breakpoints in useWindowSize
+// lg = Container grid width
+$screenSizeMax: (
+  xs: 414px,
+  sm: 767px,
+  md: 1024px,
+  lg: 1200px,
+  xl: 1366px,
+);
+
+/*
+The respond mixin is used to handle media queries for screen size
+based on the above breakpoints. The most common use will be
+respond("sm") for phone devices and respond("md") for tablets.
+*/
+@mixin respond($breakpoint) {
+  @if map-has-key($screenSizeMax, $breakpoint) {
+    @media (max-width: map-get($screenSizeMax, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @else {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}

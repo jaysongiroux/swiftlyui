@@ -23,3 +23,7 @@ jobs:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
           GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
         run: npx semantic-release
+      - name: publish to Chromatic
+        uses: chromaui/action@v1
+        with: 
+          projectToken: ${{secrets.CHROMATIC_PROJECT_TOKEN}}

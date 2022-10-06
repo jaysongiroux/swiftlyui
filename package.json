@@ -35,7 +35,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "distribute": "export NODE_ENV=production && babel src --out-dir dist --copy-files --ignore spec.js,test.js,*.stories.jsx --source-maps"
+    "distribute": "export NODE_ENV=production && babel src --out-dir dist --copy-files --ignore spec.js,test.js,*.stories.jsx --source-maps",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "browserslist": {
     "production": [
@@ -79,6 +80,7 @@
     "@storybook/testing-library": "^0.0.13",
     "@storybook/theming": "^6.5.12",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^6.10.1",
     "postcss-url": "^10.1.3",
     "prop-types": "^15.8.1",
     "rollup": "^2.79.1",
@@ -99,6 +101,10 @@
     "url": "https://github.com/jaysongiroux/swiftlyui/issues"
   },
   "homepage": "https://github.com/jaysongiroux/swiftlyui#readme",
-  "author": "jason giroux",
-  "license": "MIT"
+  "author": {
+    "name": "jason giroux"
+  },
+  "license": "MIT",
+  "readme": "ERROR: No README data found!",
+  "_id": "swiftlyui@1.1.1"
 }

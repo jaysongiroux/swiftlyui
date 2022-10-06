@@ -238,162 +238,6 @@ var classnames = {exports: {}};
 
 var cx = classnames.exports;
 
-var _excluded$6 = ["className", "onClick", "children", "disabled", "buttonColor", "contentColor", "size"];
-
-var Button = function Button(_ref) {
-  var className = _ref.className,
-      onClick = _ref.onClick,
-      children = _ref.children,
-      disabled = _ref.disabled,
-      buttonColor = _ref.buttonColor,
-      contentColor = _ref.contentColor,
-      size = _ref.size,
-      props = _objectWithoutProperties(_ref, _excluded$6);
-
-  var handleClick = function handleClick() {
-    if (disabled) return;
-    onClick();
-  };
-
-  return /*#__PURE__*/React__default["default"].createElement("button", _extends$1({
-    onClick: handleClick,
-    className: cx('Button', className, {
-      disabled: disabled
-    }, size),
-    style: buttonColor && {
-      backgroundColor: buttonColor
-    }
-  }, props), /*#__PURE__*/React__default["default"].createElement("span", {
-    style: {
-      color: contentColor
-    },
-    className: "Button-".concat(className, "-content")
-  }, children));
-};
-
-Button.propTypes = {
-  className: PropTypes__default["default"].string,
-  onClick: PropTypes__default["default"].func,
-  disabled: PropTypes__default["default"].bool,
-  buttonColor: PropTypes__default["default"].string,
-  contentColor: PropTypes__default["default"].string,
-  size: PropTypes__default["default"].oneOf(['small', 'medium', 'large'])
-};
-Button.defaultProps = {
-  className: null,
-  onClick: function onClick() {},
-  disabled: false,
-  buttonColor: null,
-  contentColor: null,
-  size: 'medium'
-};
-
-var _excluded$5 = ["children", "disabled"];
-
-var Label = function Label(_ref) {
-  var children = _ref.children,
-      disabled = _ref.disabled,
-      props = _objectWithoutProperties(_ref, _excluded$5);
-
-  return /*#__PURE__*/React__default["default"].createElement("label", _extends$1({}, props, {
-    className: cx('Label', props.className, {
-      disabled: disabled
-    })
-  }), /*#__PURE__*/React__default["default"].createElement("span", {
-    className: 'LabelText'
-  }, children));
-};
-Label.propTypes = {
-  children: PropTypes__default["default"].oneOfType([PropTypes__default["default"].string, PropTypes__default["default"].node]),
-  disabled: PropTypes__default["default"].bool
-};
-Label.defaultProps = {
-  children: null,
-  disabled: false
-};
-
-var _excluded$4 = ["className", "type", "value", "rows", "ref", "disabled", "placeholder", "onChange", "label", "error", "style", "labelPosition", "labelStyle"];
-
-var TextInput = function TextInput(_ref) {
-  var className = _ref.className,
-      type = _ref.type,
-      value = _ref.value,
-      rows = _ref.rows,
-      ref = _ref.ref,
-      disabled = _ref.disabled;
-      _ref.placeholder;
-      var onChange = _ref.onChange,
-      label = _ref.label,
-      error = _ref.error,
-      style = _ref.style,
-      labelPosition = _ref.labelPosition,
-      labelStyle = _ref.labelStyle,
-      props = _objectWithoutProperties(_ref, _excluded$4);
-
-  var handleChange = function handleChange(e) {
-    onChange(e.target.value);
-  };
-
-  var Input = type === 'textarea' ? 'textarea' : 'input';
-  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, labelPosition === 'top' && /*#__PURE__*/React__default["default"].createElement(Label, {
-    className: "TextInputLabel",
-    disabled: disabled,
-    style: _objectSpread2$1({}, labelStyle)
-  }, label), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "TextInputContainer",
-    style: _objectSpread2$1({}, style)
-  }, labelPosition === 'inside' && /*#__PURE__*/React__default["default"].createElement(Label, {
-    className: "TextInputLabel",
-    disabled: disabled,
-    style: _objectSpread2$1({}, labelStyle)
-  }, label), /*#__PURE__*/React__default["default"].createElement(Input, _extends$1({
-    ref: ref,
-    value: value,
-    type: type,
-    disabled: disabled,
-    "aria-label": label,
-    className: cx('TextInput', {
-      disabled: disabled
-    }, className, error && 'hasError'),
-    onChange: handleChange,
-    rows: rows,
-    style: props.inputStyle
-  }, props))));
-};
-
-TextInput.propTypes = {
-  className: PropTypes__default["default"].string,
-  type: PropTypes__default["default"].oneOf(['text', 'textarea', 'password', 'email', 'number']),
-  value: PropTypes__default["default"].string,
-  rows: PropTypes__default["default"].number,
-  ref: PropTypes__default["default"].oneOfType([PropTypes__default["default"].func, PropTypes__default["default"].shape({
-    current: PropTypes__default["default"].any
-  })]),
-  disabled: PropTypes__default["default"].bool,
-  placeholder: PropTypes__default["default"].string,
-  onChange: PropTypes__default["default"].func,
-  label: PropTypes__default["default"].oneOfType([PropTypes__default["default"].string, PropTypes__default["default"].node]),
-  style: PropTypes__default["default"].object,
-  error: PropTypes__default["default"].bool,
-  labelPosition: PropTypes__default["default"].oneOf(['top', 'inside']),
-  labelStyle: PropTypes__default["default"].object
-};
-TextInput.defaultProps = {
-  className: null,
-  type: 'text',
-  value: '',
-  rows: 1,
-  ref: null,
-  disabled: false,
-  placeholder: null,
-  onChange: undefined,
-  label: null,
-  style: {},
-  error: false,
-  labelPosition: 'top',
-  labelStyle: {}
-};
-
 var DefaultContext = {
   color: undefined,
   size: undefined,
@@ -596,51 +440,6 @@ Slider.defaultProps = {
   closeStyle: {},
   style: {},
   closeContainerStyle: {}
-};
-
-var useOutsideClick = function useOutsideClick(ref, handler, enabled) {
-  React.useEffect(function () {
-    if (!enabled) return;
-
-    if ((typeof window === "undefined" ? "undefined" : _typeof(window)) !== "undefined") {
-      var listener = function listener(e) {
-        // Do nothing if clicking ref's element or descendent elements
-        if (!ref || ref.contains(e.target)) {
-          return;
-        }
-
-        handler(e);
-      };
-
-      var keyboardListener = function keyboardListener(e) {
-        if (e.key === 'Escape') {
-          handler(e);
-        }
-      };
-
-      document.addEventListener('click', listener);
-      document.addEventListener('touchstart', listener);
-      document.addEventListener('keydown', keyboardListener);
-      return function () {
-        document.removeEventListener('click', listener);
-        document.removeEventListener('touchstart', listener);
-        document.removeEventListener('keydown', keyboardListener);
-      };
-    }
-  }, [ref, handler]);
-};
-
-useOutsideClick.propTypes = {
-  ref: PropTypes__default["default"].oneOfType([PropTypes__default["default"].func, PropTypes__default["default"].shape({
-    current: PropTypes__default["default"].any
-  })]),
-  handler: PropTypes__default["default"].func,
-  enabled: PropTypes__default["default"].bool
-};
-useOutsideClick.defaultProps = {
-  ref: null,
-  handler: undefined,
-  enabled: true
 };
 
 var ProgressBar = function ProgressBar(_ref) {
@@ -3490,7 +3289,7 @@ function BiErrorCircle (props) {
   return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 24 24"},"child":[{"tag":"path","attr":{"d":"M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"}},{"tag":"path","attr":{"d":"M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"}}]})(props);
 }
 
-var _excluded$3 = ["className", "place", "TooltipType", "effect", "HoverElementType", "hoverElementSize", "hoverElement", "hoverElementColor", "children"];
+var _excluded$6 = ["className", "place", "TooltipType", "effect", "HoverElementType", "hoverElementSize", "hoverElement", "hoverElementColor", "children"];
 
 var Tooltip = function Tooltip(_ref) {
   var className = _ref.className,
@@ -3502,7 +3301,7 @@ var Tooltip = function Tooltip(_ref) {
       hoverElement = _ref.hoverElement,
       hoverElementColor = _ref.hoverElementColor,
       children = _ref.children,
-      props = _objectWithoutProperties(_ref, _excluded$3);
+      props = _objectWithoutProperties(_ref, _excluded$6);
 
   var getHoverElement = function getHoverElement() {
     switch (HoverElementType) {
@@ -3584,14 +3383,14 @@ Tooltip.defaultProps = {
   hoverElementColor: null
 };
 
-var _excluded$2 = ["className", "children", "sticky", "style"];
+var _excluded$5 = ["className", "children", "sticky", "style"];
 
 var NavBar = function NavBar(_ref) {
   var className = _ref.className,
       children = _ref.children,
       sticky = _ref.sticky,
       style = _ref.style,
-      props = _objectWithoutProperties(_ref, _excluded$2);
+      props = _objectWithoutProperties(_ref, _excluded$5);
 
   return /*#__PURE__*/React__default["default"].createElement("div", _extends$1({}, props, {
     style: style,
@@ -3612,6 +3411,162 @@ NavBar.defaultProps = {
   children: null,
   sticky: false,
   style: {}
+};
+
+var _excluded$4 = ["children", "disabled"];
+
+var Label = function Label(_ref) {
+  var children = _ref.children,
+      disabled = _ref.disabled,
+      props = _objectWithoutProperties(_ref, _excluded$4);
+
+  return /*#__PURE__*/React__default["default"].createElement("label", _extends$1({}, props, {
+    className: cx('Label', props.className, {
+      disabled: disabled
+    })
+  }), /*#__PURE__*/React__default["default"].createElement("span", {
+    className: 'LabelText'
+  }, children));
+};
+Label.propTypes = {
+  children: PropTypes__default["default"].oneOfType([PropTypes__default["default"].string, PropTypes__default["default"].node]),
+  disabled: PropTypes__default["default"].bool
+};
+Label.defaultProps = {
+  children: null,
+  disabled: false
+};
+
+var _excluded$3 = ["className", "onClick", "children", "disabled", "buttonColor", "contentColor", "size"];
+
+var Button = function Button(_ref) {
+  var className = _ref.className,
+      onClick = _ref.onClick,
+      children = _ref.children,
+      disabled = _ref.disabled,
+      buttonColor = _ref.buttonColor,
+      contentColor = _ref.contentColor,
+      size = _ref.size,
+      props = _objectWithoutProperties(_ref, _excluded$3);
+
+  var handleClick = function handleClick() {
+    if (disabled) return;
+    onClick();
+  };
+
+  return /*#__PURE__*/React__default["default"].createElement("button", _extends$1({
+    onClick: handleClick,
+    className: cx('Button', className, {
+      disabled: disabled
+    }, size),
+    style: buttonColor && {
+      backgroundColor: buttonColor
+    }
+  }, props), /*#__PURE__*/React__default["default"].createElement("span", {
+    style: {
+      color: contentColor
+    },
+    className: "Button-".concat(className, "-content")
+  }, children));
+};
+
+Button.propTypes = {
+  className: PropTypes__default["default"].string,
+  onClick: PropTypes__default["default"].func,
+  disabled: PropTypes__default["default"].bool,
+  buttonColor: PropTypes__default["default"].string,
+  contentColor: PropTypes__default["default"].string,
+  size: PropTypes__default["default"].oneOf(['small', 'medium', 'large'])
+};
+Button.defaultProps = {
+  className: null,
+  onClick: function onClick() {},
+  disabled: false,
+  buttonColor: null,
+  contentColor: null,
+  size: 'medium'
+};
+
+var _excluded$2 = ["className", "type", "value", "rows", "ref", "disabled", "placeholder", "onChange", "label", "error", "style", "labelPosition", "labelStyle"];
+
+var TextInput = function TextInput(_ref) {
+  var className = _ref.className,
+      type = _ref.type,
+      value = _ref.value,
+      rows = _ref.rows,
+      ref = _ref.ref,
+      disabled = _ref.disabled;
+      _ref.placeholder;
+      var onChange = _ref.onChange,
+      label = _ref.label,
+      error = _ref.error,
+      style = _ref.style,
+      labelPosition = _ref.labelPosition,
+      labelStyle = _ref.labelStyle,
+      props = _objectWithoutProperties(_ref, _excluded$2);
+
+  var handleChange = function handleChange(e) {
+    onChange(e.target.value);
+  };
+
+  var Input = type === 'textarea' ? 'textarea' : 'input';
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, labelPosition === 'top' && /*#__PURE__*/React__default["default"].createElement(Label, {
+    className: "TextInputLabel",
+    disabled: disabled,
+    style: _objectSpread2$1({}, labelStyle)
+  }, label), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "TextInputContainer",
+    style: _objectSpread2$1({}, style)
+  }, labelPosition === 'inside' && /*#__PURE__*/React__default["default"].createElement(Label, {
+    className: "TextInputLabel",
+    disabled: disabled,
+    style: _objectSpread2$1({}, labelStyle)
+  }, label), /*#__PURE__*/React__default["default"].createElement(Input, _extends$1({
+    ref: ref,
+    value: value,
+    type: type,
+    disabled: disabled,
+    "aria-label": label,
+    className: cx('TextInput', {
+      disabled: disabled
+    }, className, error && 'hasError'),
+    onChange: handleChange,
+    rows: rows,
+    style: props.inputStyle
+  }, props))));
+};
+
+TextInput.propTypes = {
+  className: PropTypes__default["default"].string,
+  type: PropTypes__default["default"].oneOf(['text', 'textarea', 'password', 'email', 'number']),
+  value: PropTypes__default["default"].string,
+  rows: PropTypes__default["default"].number,
+  ref: PropTypes__default["default"].oneOfType([PropTypes__default["default"].func, PropTypes__default["default"].shape({
+    current: PropTypes__default["default"].any
+  })]),
+  disabled: PropTypes__default["default"].bool,
+  placeholder: PropTypes__default["default"].string,
+  onChange: PropTypes__default["default"].func,
+  label: PropTypes__default["default"].oneOfType([PropTypes__default["default"].string, PropTypes__default["default"].node]),
+  style: PropTypes__default["default"].object,
+  error: PropTypes__default["default"].bool,
+  labelPosition: PropTypes__default["default"].oneOf(['top', 'inside']),
+  labelStyle: PropTypes__default["default"].object
+};
+TextInput.defaultProps = {
+  className: null,
+  type: 'text',
+  value: '',
+  rows: 1,
+  ref: null,
+  disabled: false,
+  placeholder: null,
+  onChange: undefined,
+  label: null,
+  style: {},
+  error: false,
+  labelPosition: 'top',
+  labelStyle: {}
 };
 
 var _excluded$1 = ["borderColor", "borderRadius", "borderStyle", "borderWidth", "className", "checked", "disabled", "containerClassName", "containerStyle", "label", "labelClassName", "labelStyle", "name", "onClick", "reference", "right", "size", "style", "value", "icon"];
@@ -3892,6 +3847,51 @@ RadioButtonSet.defaultProps = {
   onChange: function onChange() {},
   className: '',
   helpTipOptions: {}
+};
+
+var useOutsideClick = function useOutsideClick(ref, handler, enabled) {
+  React.useEffect(function () {
+    if (!enabled) return;
+
+    if ((typeof window === "undefined" ? "undefined" : _typeof(window)) !== "undefined") {
+      var listener = function listener(e) {
+        // Do nothing if clicking ref's element or descendent elements
+        if (!ref || ref.contains(e.target)) {
+          return;
+        }
+
+        handler(e);
+      };
+
+      var keyboardListener = function keyboardListener(e) {
+        if (e.key === 'Escape') {
+          handler(e);
+        }
+      };
+
+      document.addEventListener('click', listener);
+      document.addEventListener('touchstart', listener);
+      document.addEventListener('keydown', keyboardListener);
+      return function () {
+        document.removeEventListener('click', listener);
+        document.removeEventListener('touchstart', listener);
+        document.removeEventListener('keydown', keyboardListener);
+      };
+    }
+  }, [ref, handler]);
+};
+
+useOutsideClick.propTypes = {
+  ref: PropTypes__default["default"].oneOfType([PropTypes__default["default"].func, PropTypes__default["default"].shape({
+    current: PropTypes__default["default"].any
+  })]),
+  handler: PropTypes__default["default"].func,
+  enabled: PropTypes__default["default"].bool
+};
+useOutsideClick.defaultProps = {
+  ref: null,
+  handler: undefined,
+  enabled: true
 };
 
 /**
@@ -5619,7 +5619,39 @@ useWindowSize.defaultProps = {
   options: {}
 };
 
-var size$1 = {
+var size$3 = {
+  width: 320
+};
+
+var Card = function Card(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      canInteract = _ref.canInteract,
+      cardSize = _ref.cardSize,
+      style = _ref.style;
+  return /*#__PURE__*/React__default["default"].createElement("div", {
+    className: cx('Card', className, {
+      canInteract: canInteract
+    }),
+    style: _objectSpread2$1(_objectSpread2$1({}, cardSize), style)
+  }, children);
+};
+
+Card.size = size$3;
+Card.propTypes = {
+  className: PropTypes__default["default"].string,
+  children: PropTypes__default["default"].oneOfType([PropTypes__default["default"].node, PropTypes__default["default"].element, PropTypes__default["default"].string]),
+  canInteract: PropTypes__default["default"].bool,
+  cardSize: PropTypes__default["default"].object
+};
+Card.defaultProps = {
+  className: null,
+  children: null,
+  canInteract: true,
+  cardSize: size$3
+};
+
+var size$2 = {
   width: 320,
   height: 260
 };
@@ -5629,33 +5661,39 @@ var IconCard = function IconCard(_ref) {
       title = _ref.title,
       children = _ref.children,
       className = _ref.className,
-      style = _ref.style;
-  return /*#__PURE__*/React__default["default"].createElement("div", {
+      style = _ref.style,
+      canInteract = _ref.canInteract;
+  return /*#__PURE__*/React__default["default"].createElement(Card, {
+    className: className,
+    canInteract: canInteract
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: cx(className, 'IconCard'),
-    style: Object.assign({}, size$1, style)
+    style: Object.assign({}, size$2, style)
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "IconCardIcon"
   }, icon), /*#__PURE__*/React__default["default"].createElement("h4", {
     className: 'IconCardHeader'
   }, title), /*#__PURE__*/React__default["default"].createElement("div", {
     className: 'IconCardContent'
-  }, children));
+  }, children)));
 };
 
-IconCard.size = size$1;
+IconCard.size = size$2;
 IconCard.propTypes = {
   icon: PropTypes__default["default"].node.isRequired,
   title: PropTypes__default["default"].node.isRequired,
   className: PropTypes__default["default"].string,
   style: PropTypes__default["default"].object,
-  children: PropTypes__default["default"].oneOfType([PropTypes__default["default"].element, PropTypes__default["default"].string]).isRequired
+  children: PropTypes__default["default"].oneOfType([PropTypes__default["default"].element, PropTypes__default["default"].string]).isRequired,
+  canInteract: PropTypes__default["default"].bool
 };
 IconCard.defaultProps = {
   className: null,
   style: {},
   children: null,
   title: '',
-  icon: null
+  icon: null,
+  canInteract: false
 };
 
 var _excluded = ["title", "text", "maxWidth", "titleAlignment", "textAlignment", "cardAlignment", "cardSize", "cardFit", "spacing"];
@@ -5804,7 +5842,7 @@ function ImQuotesLeft (props) {
   return GenIcon({"tag":"svg","attr":{"version":"1.1","viewBox":"0 0 16 16"},"child":[{"tag":"path","attr":{"d":"M12.5 10c-1.933 0-3.5-1.567-3.5-3.5s1.567-3.5 3.5-3.5 3.5 1.567 3.5 3.5l0.016 0.5c0 3.866-3.134 7-7 7v-2c1.336 0 2.591-0.52 3.536-1.464 0.182-0.182 0.348-0.375 0.497-0.578-0.179 0.028-0.362 0.043-0.549 0.043zM3.5 10c-1.933 0-3.5-1.567-3.5-3.5s1.567-3.5 3.5-3.5 3.5 1.567 3.5 3.5l0.016 0.5c0 3.866-3.134 7-7 7v-2c1.336 0 2.591-0.52 3.536-1.464 0.182-0.182 0.348-0.375 0.497-0.578-0.179 0.028-0.362 0.043-0.549 0.043z"}}]})(props);
 }
 
-var size = {
+var size$1 = {
   width: 340,
   minWidth: 316
 };
@@ -5814,29 +5852,38 @@ var QuoteCard = function QuoteCard(_ref) {
       profilePic = _ref.profilePic,
       name = _ref.name,
       children = _ref.children,
-      location = _ref.location;
-  return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: cx('QuoteCard'),
-    style: size
-  }, /*#__PURE__*/React__default["default"].createElement("a", {
-    href: link !== null && link !== void 0 ? link : '#',
-    className: 'QuoteCardLink'
-  }, /*#__PURE__*/React__default["default"].createElement("div", {
+      location = _ref.location,
+      headline = _ref.headline,
+      className = _ref.className,
+      canInteract = _ref.canInteract;
+  var interact = canInteract || link;
+  var content = /*#__PURE__*/React__default["default"].createElement(Card, {
+    className: className,
+    canInteract: interact
+  }, /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
     className: 'QuoteCardProfile'
   }, typeof profilePic === 'string' ? /*#__PURE__*/React__default["default"].createElement("img", {
     src: profilePic,
     className: 'QuoteCardProfilePic',
     alt: "".concat(name, "'s profile")
-  }) : profilePic), /*#__PURE__*/React__default["default"].createElement("blockquote", null, /*#__PURE__*/React__default["default"].createElement(ImQuotesLeft, null), children, /*#__PURE__*/React__default["default"].createElement(ImQuotesRight, null)), /*#__PURE__*/React__default["default"].createElement("div", {
+  }) : profilePic), headline && /*#__PURE__*/React__default["default"].createElement("h3", {
+    className: "QuoteCardHeadline"
+  }, headline), /*#__PURE__*/React__default["default"].createElement("blockquote", null, /*#__PURE__*/React__default["default"].createElement(ImQuotesLeft, null), "\u2002", children, "\u2002 ", /*#__PURE__*/React__default["default"].createElement(ImQuotesRight, null)), /*#__PURE__*/React__default["default"].createElement("div", {
     className: 'QuoteCardText'
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: 'QuoteCardName'
   }, name), /*#__PURE__*/React__default["default"].createElement("div", {
     className: 'QuoteCardLocation'
   }, location))));
+  return /*#__PURE__*/React__default["default"].createElement("div", {
+    className: cx('QuoteCard'),
+    style: size$1
+  }, link ? /*#__PURE__*/React__default["default"].createElement("a", {
+    href: link
+  }, content) : content);
 };
 
-QuoteCard.size = size;
+QuoteCard.size = size$1;
 QuoteCard.propTypes = {
   link: PropTypes__default["default"].string,
   profilePic: PropTypes__default["default"].node.isRequired,
@@ -5844,7 +5891,8 @@ QuoteCard.propTypes = {
   className: PropTypes__default["default"].string,
   style: PropTypes__default["default"].object,
   children: PropTypes__default["default"].oneOfType([PropTypes__default["default"].element, PropTypes__default["default"].string]).isRequired,
-  location: PropTypes__default["default"].string
+  location: PropTypes__default["default"].string,
+  canInteract: PropTypes__default["default"].bool
 };
 QuoteCard.defaultProps = {
   link: null,
@@ -5852,7 +5900,71 @@ QuoteCard.defaultProps = {
   style: {},
   children: null,
   location: '',
-  name: ''
+  name: '',
+  canInteract: true
+};
+
+// THIS FILE IS AUTO GENERATED
+function FiArrowRight (props) {
+  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":"2","strokeLinecap":"round","strokeLinejoin":"round"},"child":[{"tag":"line","attr":{"x1":"5","y1":"12","x2":"19","y2":"12"}},{"tag":"polyline","attr":{"points":"12 5 19 12 12 19"}}]})(props);
+}
+
+var size = {
+  width: 320
+};
+
+var ImageCard = function ImageCard(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      imageLink = _ref.imageLink,
+      linkText = _ref.linkText,
+      imageCaption = _ref.imageCaption,
+      link = _ref.link;
+  return /*#__PURE__*/React__default["default"].createElement(Card, {
+    canInteract: false,
+    className: className,
+    cardSize: size,
+    style: {
+      padding: 0,
+      margin: 0
+    }
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "ImageCard"
+  }, /*#__PURE__*/React__default["default"].createElement("img", {
+    src: imageLink,
+    className: "ImageCardImage"
+  }), imageCaption && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "ImageCardCaption"
+  }, imageCaption), /*#__PURE__*/React__default["default"].createElement("hr", {
+    className: "ImageCardDivider"
+  })), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "ImageCardContentContainer"
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "ImageCardContent"
+  }, children), link && /*#__PURE__*/React__default["default"].createElement("a", {
+    className: "ImageCardContentLink",
+    href: link
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "ImageCardRightContainer"
+  }, linkText, /*#__PURE__*/React__default["default"].createElement(FiArrowRight, null))))));
+};
+
+ImageCard.size = size;
+ImageCard.propTypes = {
+  className: PropTypes__default["default"].string,
+  children: PropTypes__default["default"].oneOfType([PropTypes__default["default"].node, PropTypes__default["default"].element, PropTypes__default["default"].string]).isRequired,
+  imageLink: PropTypes__default["default"].string.isrequired,
+  linkText: PropTypes__default["default"].oneOfType([PropTypes__default["default"].node, PropTypes__default["default"].element, PropTypes__default["default"].string]),
+  imageCaption: PropTypes__default["default"].oneOfType([PropTypes__default["default"].node, PropTypes__default["default"].element, PropTypes__default["default"].string]),
+  link: PropTypes__default["default"].string
+};
+ImageCard.defaultProps = {
+  className: null,
+  children: null,
+  imageLink: null,
+  linkText: null,
+  imageCaption: null,
+  link: null
 };
 
 Object.defineProperty(exports, 'LinkCard', {
@@ -5860,9 +5972,11 @@ Object.defineProperty(exports, 'LinkCard', {
   get: function () { return LinkCard__default["default"]; }
 });
 exports.Button = Button;
+exports.Card = Card;
 exports.CardGroup = CardGroup;
 exports.CheckBox = CheckBox;
 exports.IconCard = IconCard;
+exports.ImageCard = ImageCard;
 exports.Label = Label;
 exports.NavBar = NavBar;
 exports.ProgressBar = ProgressBar;

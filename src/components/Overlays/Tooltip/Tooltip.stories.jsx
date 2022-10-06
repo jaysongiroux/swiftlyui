@@ -5,11 +5,14 @@ import Tooltip from './Tooltip';
 export default {
   title: 'Overlays/Tooltip',
   component: Tooltip,
+  args: {
+    children: 'this is a pretty cool tooltip',
+  },
 };
 
 const Template = (args) => (
   <div style={{ display: 'flex', width: '100%', height: '100vh', alignItems: 'center', justifyContent: 'center' }}>
-    <Tooltip {...args} />
+    <Tooltip {...args}>{args.children}</Tooltip>
   </div>
 );
 export const TooltipText = Template.bind({});

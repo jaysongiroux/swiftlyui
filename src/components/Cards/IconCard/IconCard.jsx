@@ -2,19 +2,22 @@ import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import './IconCard.scss';
+import Card from '../Card/Card';
 
 const size = {
   width: 320,
   height: 260,
 };
 
-const IconCard = ({ icon, title, children, className, style }) => {
+const IconCard = ({ icon, title, children, className, style, canInteract }) => {
   return (
-    <div className={cx(className, 'IconCard')} style={Object.assign({}, size, style)}>
-      <div className="IconCardIcon">{icon}</div>
-      <h4 className={'IconCardHeader'}>{title}</h4>
-      <div className={'IconCardContent'}>{children}</div>
-    </div>
+    <Card className={className} canInteract={canInteract}>
+      <div className={cx(className, 'IconCard')} style={Object.assign({}, size, style)}>
+        <div className="IconCardIcon">{icon}</div>
+        <h4 className={'IconCardHeader'}>{title}</h4>
+        <div className={'IconCardContent'}>{children}</div>
+      </div>
+    </Card>
   );
 };
 
@@ -26,6 +29,7 @@ IconCard.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
+  canInteract: PropTypes.bool,
 };
 
 IconCard.defaultProps = {
@@ -34,6 +38,7 @@ IconCard.defaultProps = {
   children: null,
   title: '',
   icon: null,
+  canInteract: false,
 };
 
 export default IconCard;

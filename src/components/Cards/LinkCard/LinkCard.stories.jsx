@@ -7,12 +7,14 @@ export default {
   args: {
     className: 'linkCardExampleClass',
     title: 'Hello World',
+    link: 'https://www.google.com',
   },
 };
 
 export const LinkCardExample = ({ ...args }) => {
   return (
     <LinkCard {...args}>
+      <h2>You can click anywhere in the card</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

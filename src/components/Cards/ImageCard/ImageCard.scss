@@ -1,0 +1,56 @@
+@import '../../../styles/colors';
+
+.ImageCardImage {
+  width: 100%;
+  object-fit: cover;
+}
+
+.ImageCardContentContainer {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.ImageCardContent {
+  margin-top: 4px;
+}
+.ImageCardDivider {
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 0;
+  margin-top: 8px;
+  height: 1px;
+  background-color: $disabledColor;
+  border: none;
+}
+
+.ImageCardCaption{
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: small;
+  color: $darkgray;
+}
+
+.ImageCardContentLink {
+  color: $PrimaryColor;
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  justify-content: flex-end;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  svg {
+    margin-left: 2px;
+    transform: translateY(3px);
+  }
+}
+
+.ImageCardRightContainer{
+  padding: 8px;
+  transition: .25s;
+  border-radius: 4px;
+  cursor: pointer;
+  &:active{
+    background-color: $PrimaryColorBackgroundHover;
+  }
+}

@@ -2,33 +2,12 @@
 @import '../../../styles/breakpoints';
 
 .QuoteCard {
-  position: relative;
-  display: block;
-  box-sizing: border-box;
-  background-color: white;
-  border: 2px solid $disabledColor;
-  border-radius: 4px;
-  padding: 0;
-  text-align: left !important;
-  overflow: visible;
-  padding: 20px;
-
   blockquote {
     line-height: 1.4285em;
     color: #697891;
     font-size: 1rem;
     font-style: oblique;
     margin: 1em 0;
-  }
-
-  @include respond(500px) {
-    width: 100% !important;
-  }
-
-
-  &:hover,
-  &:active {
-    box-shadow: 0 0 18px 0px rgba(35, 67, 144, 0.2);
   }
 }
 
@@ -65,41 +44,5 @@
     font-weight: 400;
     font-size: 1rem;
     text-transform: uppercase;
-  }
-}
-
-.QuoteCardLocation {
-  color: #0f172a;
-  text-transform: none;
-}
-
-.QuoteCardCornerBtn {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  cursor: pointer;
-  transition: background-color .25s ease-in-out;
-
-  i {
-    color: $PrimaryColor;
-    transition: color .25s ease-in-out;
-    font-size: 24px;
-  }
-
-  a:hover & {
-    background-color: $PrimaryColor  !important;
-    color: white;
-    transition: background-color .25s ease-in-out;
-
-    i {
-      color: white;
-      transition: color .25s ease-in-out;
-    }
   }
 }

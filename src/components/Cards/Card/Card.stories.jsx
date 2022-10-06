@@ -1,21 +1,17 @@
 import React from 'react';
-import QuoteCard from './QuoteCard';
+import Card from './Card';
 
 export default {
-  title: 'Cards/QuoteCard',
-  component: QuoteCard,
+  title: 'Cards/Card',
+  component: Card,
   args: {
-    className: 'iconCardExampleClass',
-    name: 'Joe Smith',
-    location: 'Boston, MA',
-    headline: 'This is awesome!',
-    profilePic:
-      'https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/03/GettyImages-1092658864_thumb-732x549.jpg',
+    className: 'cardExampleClass',
   },
 };
-export const QuoteCardExample = ({ ...args }) => {
+
+export const CardExample = ({ ...args }) => {
   return (
-    <QuoteCard {...args}>
+    <Card {...args}>
       <span>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -23,6 +19,6 @@ export const QuoteCardExample = ({ ...args }) => {
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
         laborum.
       </span>
-    </QuoteCard>
+    </Card>
   );
 };

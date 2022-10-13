@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { ThemeContext } from '../../Providers/ThemeProvider/ThemeProvider';
 import './ProgressBar.scss';
 
-const ProgressBar = ({ className, steps, curStep, height, style }) => {
+const ProgressBar = ({ className, steps, curStep, height, style, fillColor, backgroundColor }) => {
+  const { progressBar } = useContext(ThemeContext);
+  const color = fillColor || progressBar?.primaryColor;
+  const bgColor = backgroundColor || progressBar?.secondaryColor;
+
   const widthCalc = (curStep / steps) * 100;
   let widthFill;
 
@@ -16,8 +21,8 @@ const ProgressBar = ({ className, steps, curStep, height, style }) => {
   }
 
   return (
-    <div className={cx('ProgressBar', className)} style={{ height, ...style }}>
-      <div className={'ProgressBarFill'} style={{ width: widthFill }} />
+    <div className={cx('ProgressBar', className)} style={{ height, backgroundColor: bgColor, ...style }}>
+      <div className={'ProgressBarFill'} style={{ width: widthFill, backgroundColor: color }} />
     </div>
   );
 };
@@ -26,12 +31,16 @@ ProgressBar.propTypes = {
   steps: PropTypes.number.isRequired,
   curStep: PropTypes.number.isRequired,
   height: PropTypes.string,
+  fillColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
 };
 
 ProgressBar.defaultProps = {
   steps: null,
   curStep: null,
   height: '4px',
+  fillColor: null,
+  backgroundColor: null,
 };
 
 export default ProgressBar;

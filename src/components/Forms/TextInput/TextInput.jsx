@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
+import { ThemeContext } from '../../Providers/ThemeProvider/ThemeProvider';
 import './TextInput.scss';
 import Label from '../Label/Label';
 
@@ -20,6 +21,7 @@ const TextInput = ({
   labelStyle,
   ...props
 }) => {
+  const { textInput } = useContext(ThemeContext);
   const handleChange = (e) => {
     onChange(e.target.value);
   };
@@ -27,13 +29,33 @@ const TextInput = ({
   return (
     <>
       {labelPosition === 'top' && (
-        <Label className="TextInputLabel" disabled={disabled} style={{ ...labelStyle }}>
+        <Label
+          className="TextInputLabel"
+          disabled={disabled}
+          style={{
+            ...labelStyle,
+            color: disabled ? textInput?.disabledColor || 'lightgray' : textInput?.secondaryColor,
+          }}
+        >
           {label}
         </Label>
       )}
-      <div className="TextInputContainer" style={{ ...style }}>
+      <div
+        className="TextInputContainer"
+        style={{
+          ...style,
+          border: `1px solid ${disabled ? textInput?.disabledColor || 'lightgray' : textInput?.primaryColor}`,
+        }}
+      >
         {labelPosition === 'inside' && (
-          <Label className="TextInputLabel" disabled={disabled} style={{ ...labelStyle }}>
+          <Label
+            className="TextInputLabel"
+            disabled={disabled}
+            style={{
+              ...labelStyle,
+              color: disabled ? textInput?.disabledColor || 'lightgray' : textInput?.secondaryColor,
+            }}
+          >
             {label}
           </Label>
         )}
@@ -46,7 +68,9 @@ const TextInput = ({
           className={cx('TextInput', { disabled }, className, error && 'hasError')}
           onChange={handleChange}
           rows={rows}
-          style={props.inputStyle}
+          style={
+            (props.inputStyle, { color: disabled ? textInput?.disabledColor || 'lightgray' : textInput?.contentColor })
+          }
           {...props}
         />
       </div>

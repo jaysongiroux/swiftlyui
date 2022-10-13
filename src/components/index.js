@@ -31,3 +31,6 @@ export { default as LinkCard } from ',./Cards/LinkCard/LinkCard';
 export { default as QuoteCard } from './Cards/QuoteCard/QuoteCard';
 export { default as ImageCard } from './Cards/ImageCard/ImageCard';
 export { default as Card } from './Cards/Card/Card';
+
+// PROVIDERS
+export { default as ThemeProvider } from './Providers/ThemeProvider/ThemeProvider';

@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { ThemeContext } from '../../Providers/ThemeProvider/ThemeProvider';
 import './RadioButton.scss';
 
 const RadioButton = ({ label, name, value, checked = false, disabled = false, className, onChange, style }) => {
+  const { radioButton } = useContext(ThemeContext);
+  const radioButtonStyle = {
+    backgroundColor: checked ? (disabled ? radioButton?.disabledColor : radioButton?.primaryColor) : 'transparent',
+    outline: checked
+      ? `2px solid white`
+      : `2px solid ${disabled ? radioButton?.disabledColor : radioButton?.primaryColor}`,
+  };
+
   const id = name + '-' + value;
   const handleChange = () => {
     onChange(!checked, name, value);
@@ -11,7 +20,11 @@ const RadioButton = ({ label, name, value, checked = false, disabled = false, cl
 
   return (
     <div style={{ width: '100%' }}>
-      <label className={cx('RadioButton', className, { disabled }, { checked })} style={style} htmlFor={id}>
+      <label
+        className={cx('RadioButton', className, { disabled }, { checked })}
+        style={(style, { color: disabled ? radioButton?.disabledColor : radioButton?.contentColor })}
+        htmlFor={id}
+      >
         <input
           className={'RadioButtonInput'}
           type="radio"
@@ -27,10 +40,11 @@ const RadioButton = ({ label, name, value, checked = false, disabled = false, cl
           role="radio"
           aria-checked={checked}
           aria-label={label || value}
-          className={'RadioButtonCustom'}
+          className={cx('RadioButtonCustom', { disabled, checked })}
           onKeyDown={(e) => {
             if (!disabled) handleKeyboardEnter(handleChange)(e);
           }}
+          style={radioButtonStyle}
         />
         <span className={style.RadioButtonDisplayLabel}>{label || value}</span>
       </label>

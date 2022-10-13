@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../Providers/ThemeProvider/ThemeProvider';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import './CheckBox.scss';
@@ -23,9 +24,14 @@ const CheckBox = ({
   size,
   style,
   value,
-  icon,
   ...props
 }) => {
+  const { checkBox } = useContext(ThemeContext);
+  let color = borderColor || checkBox?.primaryColor;
+  if (disabled && checkBox?.disabledColor) {
+    color = checkBox?.disabledColor;
+  }
+
   const handleClick = () => {
     if (disabled) return;
     onClick(value, !checked);
@@ -41,7 +47,10 @@ const CheckBox = ({
       }}
       onClick={() => handleClick()}
     >
-      <span className={cx(labelClassName, 'CheckBoxLabel', { isDisabled: disabled })} style={labelStyle}>
+      <span
+        className={cx(labelClassName, 'CheckBoxLabel', { isDisabled: disabled })}
+        style={(labelStyle, { color: disabled ? checkBox?.disabledColor : checkBox?.contentColor })}
+      >
         {label}
       </span>
       <span>
@@ -51,13 +60,20 @@ const CheckBox = ({
             height: size,
             width: size,
             borderWidth: borderWidth,
-            borderColor: borderColor,
+            borderColor: color,
             borderStyle: borderStyle,
             borderRadius: borderRadius,
             ...style,
           }}
         >
-          <span className={cx('CheckBoxInputIcon', { isDisabled: disabled, shouldRender: checked })}>{icon}</span>
+          <span
+            className={cx('CheckBoxInputIcon', {
+              isDisabled: disabled,
+              shouldRender: checked,
+            })}
+          >
+            <div className="CheckBox default-icon" style={{ backgroundColor: borderColor || color }} />
+          </span>
           <input
             {...props}
             ref={reference}
@@ -92,7 +108,6 @@ CheckBox.propTypes = {
   containerStyle: PropTypes.object,
   value: PropTypes.string,
   onClick: PropTypes.func,
-  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   reference: PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.array]),
 };
 
@@ -115,7 +130,6 @@ CheckBox.defaultProps = {
   value: '',
   reference: null,
   onClick: null,
-  icon: <div className="CheckBox default-icon" />,
 };
 
 export default CheckBox;

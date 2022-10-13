@@ -13,6 +13,7 @@
 
   &.disabled {
     color: $disabledTextGray;
+    box-shadow: none;
     cursor: default;
   }
 }
@@ -36,7 +37,9 @@
     &:checked+.RadioButtonCustom {
       background-color: $disabledTextGray;
     }
-
+    &:checked:hover{
+      box-shadow: none;
+    }
     &:not(:checked)+.RadioButtonCustom {
       border-color: $disabledTextGray;
       outline-color: $disabledTextGray;
@@ -78,6 +81,10 @@
 
   &:hover {
     box-shadow: 0 0 4px 2px $PrimaryColorHover;
+  }
+
+  &.disabled:hover {
+    box-shadow: none;
   }
 }
 

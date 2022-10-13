@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { ThemeContext } from '../../Providers/ThemeProvider/ThemeProvider';
 import './Button.scss';
 
 const Button = ({ className, onClick, children, disabled, buttonColor, contentColor, size, ...props }) => {
+  const { button } = useContext(ThemeContext);
+  const color = buttonColor || button.primaryColor;
+  const secondaryColor = contentColor || button?.secondaryColor;
+
   const handleClick = () => {
     if (disabled) return;
     onClick();
@@ -13,10 +18,10 @@ const Button = ({ className, onClick, children, disabled, buttonColor, contentCo
     <button
       onClick={handleClick}
       className={cx('Button', className, { disabled }, size)}
-      style={buttonColor && { backgroundColor: buttonColor }}
+      style={color && { backgroundColor: color }}
       {...props}
     >
-      <span style={{ color: contentColor }} className={`Button-${className}-content`}>
+      <span style={{ color: secondaryColor }} className={`Button-${className}-content`}>
         {children}
       </span>
     </button>

@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import Tooltip from '../../Overlays/Tooltip/Tooltip';
 import Label from '../Label/Label';
 import RadioButton from './RadioButton';
+import { ThemeContext } from '../../Providers/ThemeProvider/ThemeProvider';
 import './RadioButton.scss';
 
 const RadioButtonSet = ({ value, label, inline, disabled, name, options, onChange, className, helpTipOptions }) => {
+  const { checkBox } = useContext(ThemeContext);
+  
   const withHelp = !!options.find((opt) => {
     return opt.helptip;
   });

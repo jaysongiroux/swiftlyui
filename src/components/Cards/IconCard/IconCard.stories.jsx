@@ -9,7 +9,9 @@ export default {
     className: 'iconCardExampleClass',
     icon: <AiOutlineInfoCircle />,
     title: 'Hello World',
-    description: 'This is a description',
+    style: {
+      height: '300px',
+    },
   },
 };
 export const IconCardExample = ({ ...args }) => {

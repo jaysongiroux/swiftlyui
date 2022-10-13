@@ -40,7 +40,7 @@ ImageCard.size = size;
 ImageCard.propTypes = {
   className: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.string]).isRequired,
-  imageLink: PropTypes.string.isrequired,
+  imageLink: PropTypes.string.isRequired,
   linkText: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.string]),
   imageCaption: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.string]),
   link: PropTypes.string,

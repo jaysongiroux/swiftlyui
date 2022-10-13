@@ -3,21 +3,15 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import Card from '../Card/Card';
 
-const size = {
-  width: 320,
-};
-
 const LinkCard = ({ className, children, link, canInteract }) => {
   return (
-    <Card className={className} canInteract={canInteract}>
+    <Card className={cx(className, 'LinkCard')} canInteract={canInteract}>
       <a href={link} style={{ textDecoration: 'none', color: 'black' }}>
         {children}
       </a>
     </Card>
   );
 };
-
-LinkCard.size = size;
 
 LinkCard.propTypes = {
   link: PropTypes.string.isRequired,

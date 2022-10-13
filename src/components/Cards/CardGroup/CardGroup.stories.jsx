@@ -14,12 +14,8 @@ export default {
     title: 'hello world',
     text: 'This is a description',
     titleAlignment: 'left',
-    textAlignment: 'left',
     cardAlignment: 'left',
     maxWidth: '1200px',
-    cardFit: '50%',
-    spacing: 16,
-    cardSize: { ...IconCard.size },
   },
 };
 export const CardGroupIconCardExample = ({ ...args }) => {
@@ -53,7 +49,7 @@ export const CardGroupIconCardExample = ({ ...args }) => {
           est laborum.
         </span>
       </QuoteCard>
-      <LinkCard link="www.google.com">
+      <LinkCard link="https://www.google.com">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
           magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

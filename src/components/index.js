@@ -23,6 +23,7 @@ export { default as RadioButtonSet } from './Forms/RadioButton/RadioButtonSet';
 export { default as useEscape } from './Hooks/useEscape/useEscape';
 export { default as useOutsideClick } from './Hooks/useOutsideClick/useOutsideClick';
 export { default as useWindowSize } from './Hooks/useWindowSize/useWindowSize';
+export { default as useThemeProvider } from './Hooks/useThemeProvider/useThemeProvider';
 
 // CARDS
 export { default as IconCard } from './Cards/IconCard/IconCard';
@@ -31,3 +32,6 @@ export { default as LinkCard } from ',./Cards/LinkCard/LinkCard';
 export { default as QuoteCard } from './Cards/QuoteCard/QuoteCard';
 export { default as ImageCard } from './Cards/ImageCard/ImageCard';
 export { default as Card } from './Cards/Card/Card';
+
+// PROVIDERS
+export { default as ThemeProvider } from './Providers/ThemeProvider/ThemeProvider';

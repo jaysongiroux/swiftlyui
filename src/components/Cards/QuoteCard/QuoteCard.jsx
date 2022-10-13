@@ -5,11 +5,6 @@ import Card from '../Card/Card';
 import { ImQuotesLeft, ImQuotesRight } from 'react-icons/im';
 import './QuoteCard.scss';
 
-const size = {
-  width: 340,
-  minWidth: 316,
-};
-
 const QuoteCard = ({ link, profilePic, name, children, location, headline, className, canInteract }) => {
   const interact = canInteract || link;
   const content = (
@@ -37,14 +32,8 @@ const QuoteCard = ({ link, profilePic, name, children, location, headline, class
     </Card>
   );
 
-  return (
-    <div className={cx('QuoteCard')} style={size}>
-      {link ? <a href={link}>{content}</a> : content}
-    </div>
-  );
+  return <div className={cx('QuoteCard')}>{link ? <a href={link}>{content}</a> : content}</div>;
 };
-
-QuoteCard.size = size;
 
 QuoteCard.propTypes = {
   link: PropTypes.string,
@@ -62,8 +51,8 @@ QuoteCard.defaultProps = {
   className: null,
   style: {},
   children: null,
-  location: '',
-  name: '',
+  location: null,
+  name: null,
   canInteract: true,
 };
 

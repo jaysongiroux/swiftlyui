@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { useThemeProvider } from '../../Hooks/useThemeProvider/useThemeProvider';
 import './Button.scss';
 
 const Button = ({ className, onClick, children, disabled, buttonColor, contentColor, size, ...props }) => {
+  const { primaryColor, secondaryColor } = useThemeProvider('button');
+  const btnColor = buttonColor || primaryColor;
+  const textColor = contentColor || secondaryColor;
+
   const handleClick = () => {
     if (disabled) return;
     onClick();
@@ -13,7 +18,7 @@ const Button = ({ className, onClick, children, disabled, buttonColor, contentCo
     <button
       onClick={handleClick}
       className={cx('Button', className, { disabled }, size)}
-      style={buttonColor && { backgroundColor: buttonColor }}
+      style={{ backgroundColor: btnColor, color: textColor }}
       {...props}
     >
       <span style={{ color: contentColor }} className={`Button-${className}-content`}>

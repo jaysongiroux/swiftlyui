@@ -76,7 +76,7 @@
     box-sizing: border-box;
   }
 
-  &:hover {
+  &:hover:not(.disabled) {
     box-shadow: 0 0 4px 2px $PrimaryColorHover;
   }
 }
@@ -120,11 +120,9 @@
       cursor: default;
     }
 
-    &:hover:not(.disabled),
-    &.checked:not(.disabled) {
+    &:hover:not(.disabled){
+      filter: brightness(.96);
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-      border-color: $PrimaryColor;
-      color: $PrimaryColor;
     }
 
     .RadioButtonDisplayLabel {

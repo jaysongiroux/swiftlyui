@@ -16,10 +16,8 @@ export default {
     label: 'Hello world',
     error: false,
     onChange: () => {},
-    inputStyle: { color: '#3f51b5' },
-    style: { color: '#3f51b5' },
-    labelStyle: { color: '#b53fb5', fontStyle: 'italic' },
-    labelPosition: 'top',
+    inputStyle: { color: 'black' },
+    labelStyle: { color: 'blue', fontStyle: 'italic' },
   },
 };
 

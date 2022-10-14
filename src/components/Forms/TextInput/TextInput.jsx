@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import './TextInput.scss';
+import { useThemeProvider } from '../../Hooks/useThemeProvider/useThemeProvider';
 import Label from '../Label/Label';
 
 const TextInput = ({
@@ -16,27 +17,31 @@ const TextInput = ({
   label,
   error,
   style,
-  labelPosition,
   labelStyle,
+  inputStyle,
   ...props
 }) => {
+  const { primaryColor, disabledColor, labelColor, inputColor } = useThemeProvider('textinput');
   const handleChange = (e) => {
     onChange(e.target.value);
   };
   const Input = type === 'textarea' ? 'textarea' : 'input';
   return (
     <>
-      {labelPosition === 'top' && (
-        <Label className="TextInputLabel" disabled={disabled} style={{ ...labelStyle }}>
+      <div
+        className="TextInputContainer"
+        style={{ ...style, border: `2px solid ${disabled ? disabledColor : primaryColor} ` }}
+      >
+        <Label
+          className="TextInputLabel"
+          disabled={disabled}
+          labelColor={labelColor}
+          labelDisabledColor={disabledColor}
+          style={{ ...labelStyle }}
+        >
           {label}
         </Label>
-      )}
-      <div className="TextInputContainer" style={{ ...style }}>
-        {labelPosition === 'inside' && (
-          <Label className="TextInputLabel" disabled={disabled} style={{ ...labelStyle }}>
-            {label}
-          </Label>
-        )}
+
         <Input
           ref={ref}
           value={value}
@@ -46,7 +51,7 @@ const TextInput = ({
           className={cx('TextInput', { disabled }, className, error && 'hasError')}
           onChange={handleChange}
           rows={rows}
-          style={props.inputStyle}
+          style={{ color: disabled ? disabledColor : inputColor, ...inputStyle }}
           {...props}
         />
       </div>
@@ -66,7 +71,7 @@ TextInput.propTypes = {
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   style: PropTypes.object,
   error: PropTypes.bool,
-  labelPosition: PropTypes.oneOf(['top', 'inside']),
+  inputStyle: PropTypes.object,
   labelStyle: PropTypes.object,
 };
 
@@ -78,11 +83,11 @@ TextInput.defaultProps = {
   ref: null,
   disabled: false,
   placeholder: null,
-  onChange: undefined,
+  onChange: () => {},
   label: null,
   style: {},
   error: false,
-  labelPosition: 'top',
+  inputStyle: {},
   labelStyle: {},
 };
 

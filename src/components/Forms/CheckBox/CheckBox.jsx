@@ -1,31 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { useThemeProvider } from '../../Hooks/useThemeProvider/useThemeProvider';
 import './Checkbox.scss';
 
 const CheckBox = ({
-  borderColor,
+  checkboxColor,
   borderRadius,
   borderStyle,
   borderWidth,
   className,
   checked,
   disabled,
-  containerClassName,
   containerStyle,
   label,
-  labelClassName,
-  labelStyle,
   name,
   onClick,
-  reference,
+  ref,
   right,
   size,
   style,
   value,
-  icon,
   ...props
 }) => {
+  const { primaryColor, disabledColor, secondaryColor } = useThemeProvider('checkbox');
+  checkboxColor = checkboxColor || primaryColor;
+
   const handleClick = () => {
     if (disabled) return;
     onClick(value, !checked);
@@ -33,7 +33,7 @@ const CheckBox = ({
 
   return (
     <button
-      className={cx(containerClassName, 'CheckBox', { isDisabled: disabled })}
+      className={cx(className, 'CheckBox', { isDisabled: disabled })}
       style={{
         flexDirection: right ? 'row' : 'row-reverse',
         cursor: disabled ? 'not-allowed' : 'pointer',
@@ -41,7 +41,10 @@ const CheckBox = ({
       }}
       onClick={() => handleClick()}
     >
-      <span className={cx(labelClassName, 'CheckBoxLabel', { isDisabled: disabled })} style={labelStyle}>
+      <span
+        className={cx(props.labelClassName, 'CheckBoxLabel', { isDisabled: disabled })}
+        style={(props.labelStyle, { marginLeft: '8px', color: disabled ? disabledColor : secondaryColor })}
+      >
         {label}
       </span>
       <span>
@@ -51,16 +54,18 @@ const CheckBox = ({
             height: size,
             width: size,
             borderWidth: borderWidth,
-            borderColor: borderColor,
+            borderColor: disabled ? disabledColor : checkboxColor,
             borderStyle: borderStyle,
             borderRadius: borderRadius,
             ...style,
           }}
         >
-          <span className={cx('CheckBoxInputIcon', { isDisabled: disabled, shouldRender: checked })}>{icon}</span>
+          <span className={cx('CheckBoxInputIcon', { isDisabled: disabled, shouldRender: checked })}>
+            <div style={{ backgroundColor: disabled ? disabledColor : checkboxColor }} className="CheckBoxIcon" />
+          </span>
           <input
             {...props}
-            ref={reference}
+            ref={ref}
             type="checkbox"
             name={name}
             checked={checked}
@@ -76,7 +81,7 @@ const CheckBox = ({
 };
 
 CheckBox.propTypes = {
-  borderColor: PropTypes.string,
+  checkboxColor: PropTypes.string,
   borderRadius: PropTypes.string,
   borderStyle: PropTypes.string,
   borderWidth: PropTypes.string,
@@ -87,17 +92,15 @@ CheckBox.propTypes = {
   size: PropTypes.string,
   style: PropTypes.object,
   className: PropTypes.string,
-  labelStyle: PropTypes.object,
-  labelClassName: PropTypes.string,
   containerStyle: PropTypes.object,
   value: PropTypes.string,
   onClick: PropTypes.func,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  reference: PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.array]),
+  ref: PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.array]),
 };
 
 CheckBox.defaultProps = {
-  borderColor: null,
+  checkboxColor: null,
   borderStyle: 'solid',
   borderWidth: '2px',
   borderRadius: '5px',
@@ -108,14 +111,10 @@ CheckBox.defaultProps = {
   size: '18px',
   style: {},
   className: '',
-  labelStyle: { marginLeft: '5px' },
-  labelClassName: '',
   containerStyle: {},
-  containerClassName: '',
   value: '',
-  reference: null,
-  onClick: null,
-  icon: <div className="CheckBox default-icon" />,
+  ref: null,
+  onClick: () => {},
 };
 
 export default CheckBox;

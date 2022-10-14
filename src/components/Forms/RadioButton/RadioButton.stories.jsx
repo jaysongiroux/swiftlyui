@@ -10,7 +10,6 @@ export default {
     value: 'hello-world',
     checked: false,
     disabled: false,
-    required: true,
     onChange: () => {},
   },
 };

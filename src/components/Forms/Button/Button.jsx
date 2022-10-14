@@ -5,7 +5,7 @@ import { useThemeProvider } from '../../Hooks/useThemeProvider/useThemeProvider'
 import './Button.scss';
 
 const Button = ({ className, onClick, children, disabled, buttonColor, contentColor, size, ...props }) => {
-  const { primaryColor, secondaryColor } = useThemeProvider('button');
+  const { primaryColor, secondaryColor, disabledColor, disabledSecondaryColor } = useThemeProvider('button');
   const btnColor = buttonColor || primaryColor;
   const textColor = contentColor || secondaryColor;
 
@@ -18,7 +18,10 @@ const Button = ({ className, onClick, children, disabled, buttonColor, contentCo
     <button
       onClick={handleClick}
       className={cx('Button', className, { disabled }, size)}
-      style={{ backgroundColor: btnColor, color: textColor }}
+      style={{
+        backgroundColor: disabled ? disabledColor : btnColor,
+        color: disabled ? disabledSecondaryColor : textColor,
+      }}
       {...props}
     >
       <span style={{ color: contentColor }} className={`Button-${className}-content`}>

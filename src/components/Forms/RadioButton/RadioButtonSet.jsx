@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 import Tooltip from '../../Overlays/Tooltip/Tooltip';
 import Label from '../Label/Label';
 import RadioButton from './RadioButton';
+import { useThemeProvider } from '../../Hooks/useThemeProvider/useThemeProvider';
 import './RadioButton.scss';
 
 const RadioButtonSet = ({ value, label, inline, disabled, name, options, onChange, className, helpTipOptions }) => {
+  const { labelColor, labelDisabledColor } = useThemeProvider('radiobuttonset');
+  const { primaryColor } = useThemeProvider('radiobutton');
   const withHelp = !!options.find((opt) => {
     return opt.helptip;
   });
@@ -22,7 +25,9 @@ const RadioButtonSet = ({ value, label, inline, disabled, name, options, onChang
 
   return (
     <span className={cx('RadioButtonSet', className)}>
-      <Label className={'RadioButtonSetLabel'}>{label}</Label>
+      <Label className={'RadioButtonSetLabel'} labelColor={labelColor} labelDisabledColor={labelDisabledColor}>
+        {label}
+      </Label>
       <div className={cx('RadioButtonSetOptionsContainer', inline && 'isInline')}>
         {options.map((option) => {
           const isChecked = option.value === value;
@@ -31,9 +36,14 @@ const RadioButtonSet = ({ value, label, inline, disabled, name, options, onChang
               {...option}
               key={option.value}
               name={name}
-              className={cx('RadioButtonSetItem', { withHelp: withHelp })}
+              className={cx('RadioButtonSetItem', { withHelp })}
               checked={isChecked}
               disabled={option.disabled || disabled}
+              style={{
+                borderColor: isChecked && withHelp ? primaryColor : null,
+                boxShadow: isChecked && withHelp ? `0 1px 3px 0 rgba(0, 0, 0, 0.5)` : null,
+                color: isChecked && withHelp ? primaryColor : null,
+              }}
               label={
                 <span className="RadioButtonSetRadioButtonLabel">
                   <div className={cx('RadioButtonSetLabelText', { hasHelp: option.helptip })}>
@@ -42,6 +52,7 @@ const RadioButtonSet = ({ value, label, inline, disabled, name, options, onChang
                   {option.helptip && (
                     <span className="RadioButtonSetTooltip">
                       <Tooltip
+                        uuid={option.label}
                         {...option.helpTipOptions}
                         {...helpTipOptions}
                         hoverElementSize="25px"

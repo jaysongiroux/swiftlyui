@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { AiOutlineInfoCircle, AiOutlineCheckCircle, AiOutlineWarning } from 'react-icons/ai';
 import { BiErrorCircle, BiHelpCircle } from 'react-icons/bi';
 import './Tooltip.scss';
+import { generateUUID } from '../../../utils/generateUUID';
 
 const Tooltip = ({
   className,
@@ -16,6 +17,7 @@ const Tooltip = ({
   hoverElement,
   hoverElementColor,
   children,
+  uuid,
   ...props
 }) => {
   const getHoverElement = () => {
@@ -79,7 +81,7 @@ const Tooltip = ({
         getHoverElement()
       )}
 
-      <ReactTooltip place={place} type={TooltipType} effect={effect} {...props}>
+      <ReactTooltip uuid={uuid} place={place} type={TooltipType} effect={effect} {...props}>
         {children}
       </ReactTooltip>
     </div>
@@ -95,6 +97,7 @@ Tooltip.propTypes = {
   hoverElementSize: PropTypes.string,
   hoverElement: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   hoverElementColor: PropTypes.string,
+  uuid: PropTypes.string,
 };
 
 Tooltip.defaultProps = {
@@ -106,6 +109,7 @@ Tooltip.defaultProps = {
   hoverElementSize: null,
   hoverElement: null,
   hoverElementColor: null,
+  uuid: generateUUID(),
 };
 
 export default Tooltip;

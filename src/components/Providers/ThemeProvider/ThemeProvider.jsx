@@ -1,15 +1,48 @@
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 
-export const ThemeContext = createContext({
+const themeDefaultValues = {
   button: {
     primaryColor: null,
     secondaryColor: null,
+    disabledColor: null,
+    disabledSecondaryColor: null,
   },
-});
+  checkbox: {
+    primaryColor: null,
+    secondaryColor: null,
+    disabledColor: null,
+  },
+  radiobutton: {
+    primaryColor: null,
+    disabledColor: null,
+    labelColor: null,
+    labelDisabledColor: null,
+  },
+  radiobuttonset: {
+    labelColor: null,
+    labelDisabledColor: null,
+  },
+  textinput: {
+    primaryColor: null,
+    disabledColor: null,
+    labelColor: null,
+    inputColor: null,
+  },
+  spinner: {
+    primaryColor: null,
+  },
+  progressbar: {
+    primaryColor: null,
+    secondaryColor: null,
+  },
+};
+
+export const ThemeContext = createContext(themeDefaultValues);
 
 const ThemeProvider = ({ children, theme }) => {
-  return <ThemeContext.Provider value={{ ...theme }}>{children}</ThemeContext.Provider>;
+  const themeValues = { ...themeDefaultValues, ...theme };
+  return <ThemeContext.Provider value={themeValues}>{children}</ThemeContext.Provider>;
 };
 
 ThemeProvider.propTypes = {
@@ -18,12 +51,8 @@ ThemeProvider.propTypes = {
 };
 
 ThemeProvider.defaultProps = {
-  theme: {
-    button: {
-      primaryColor: null,
-      secondaryColor: null,
-    },
-  },
+  theme: themeDefaultValues,
+  children: null,
 };
 
 export default ThemeProvider;

@@ -3,12 +3,15 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import './Spinner.scss';
 import '../../../styles/_colors.scss';
+import { useThemeProvider } from '../../Hooks/useThemeProvider/useThemeProvider';
 
 const Spinner = ({ className, size, color, style }) => {
+  const { primaryColor } = useThemeProvider('spinner');
+
   return (
     <div className={cx('Spinner', className, size)} style={style}>
       <svg className="SpinnerSVG" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <circle className="SpinnerCircle" style={{ stroke: color }} cx="50" cy="50" r="46" />
+        <circle className="SpinnerCircle" style={{ stroke: color || primaryColor }} cx="50" cy="50" r="46" />
       </svg>
     </div>
   );

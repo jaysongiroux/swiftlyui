@@ -1,0 +1,47 @@
+@import '../../../styles/_colors.scss';
+
+.IconProgressCircle-wrapper {
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.IconProgressCircle {
+  transform: rotate(-90deg);
+  /* Fix the orientation */
+}
+
+.IconProgressCircle-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.IconProgressCircle-label__progress {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.IconProgressCircle-indicator {
+  stroke: $PrimaryColor;
+}
+
+.IconProgressCircle-track {
+  stroke: $gray;
+}
+
+.IconProgressCircle-label__progress {
+  display: block;
+}
+
+/* Spinner animation */
+@keyframes spinner {
+  0% {
+    transform: rotate(0)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}

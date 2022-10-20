@@ -7,7 +7,8 @@ import RadioButtonSet from '../../Forms/RadioButton/RadioButtonSet';
 import TextInput from '../../Forms/TextInput/TextInput';
 import Spinner from '../../Loaders/Spinner/Spinner';
 import ProgressBar from '../../Loaders/ProgressBar/ProgressBar';
-
+import IconProgressBarCircle from '../../Loaders/IconProgressBarCircle/IconProgressBarCircle';
+import { FaBeer } from 'react-icons/fa';
 export default {
   title: 'Providers/ThemeProvider',
   component: ThemeProvider,
@@ -44,6 +45,10 @@ export default {
         primaryColor: 'green',
       },
       progressbar: {
+        primaryColor: 'green',
+        secondaryColor: 'black',
+      },
+      iconprogressbarcircle: {
         primaryColor: 'green',
         secondaryColor: 'black',
       },
@@ -100,9 +105,15 @@ export const ThemeProviderExample = ({ ...args }) => {
       <section>
         <h2>Loaders</h2>
         <h3>Spinner</h3>
-        <Spinner />
+        <Spinner style={{ margin: '8px' }} />
+        <Spinner hasCenter={true} style={{ margin: '8px' }} />
         <h3>Progress Bar</h3>
         <ProgressBar style={{ marginTop: '32px' }} curStep={5} steps={10} />
+        <h3>Icon Progress Bar Circle</h3>
+        <IconProgressBarCircle progress={20} />
+        <IconProgressBarCircle progress={70}>
+          <FaBeer size={50} />
+        </IconProgressBarCircle>
       </section>
     </ThemeProvider>
   );

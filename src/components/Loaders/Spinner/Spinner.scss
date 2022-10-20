@@ -2,7 +2,11 @@
 
 .Spinner {
   display: flex;
+  width: fit-content;
   justify-content: center;
+  &.xs {
+    height: 20px;
+  }
   &.small {
     height: 50px;
   }
@@ -17,8 +21,7 @@
 }
 
 .SpinnerSVG {
-  width: 50%;
-  max-width: 10rem;
+  width: fit-content;
   animation: rotate 3.6s linear infinite;
 }
 
@@ -28,6 +31,10 @@
   stroke-width: 8px;
   stroke-dasharray: 300;
   animation: outline 2s cubic-bezier(0.77, 0, 0.18, 1) infinite;
+}
+
+.SpinnerCenter {
+  fill: $PrimaryColor;
 }
 
 @keyframes outline {

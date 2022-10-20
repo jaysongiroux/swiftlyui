@@ -36,6 +36,10 @@ const themeDefaultValues = {
     primaryColor: null,
     secondaryColor: null,
   },
+  iconprogressbarcircle: {
+    primaryColor: null,
+    secondaryColor: null,
+  },
 };
 
 export const ThemeContext = createContext(themeDefaultValues);

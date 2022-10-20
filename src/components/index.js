@@ -4,6 +4,7 @@ export { default as Slider } from './Containers/Slider/Slider';
 // LOADERS
 export { default as ProgressBar } from './Loaders/ProgressBar/ProgressBar';
 export { default as Spinner } from './Loaders/Spinner/Spinner';
+export {default as IconProgressBarCircle} from './Loaders/IconProgressBarCircle/IconProgressBarCircle';
 
 // OVERLAYS
 export { default as Tooltip } from './Overlays/Tooltip/Tooltip';

@@ -96,15 +96,13 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "description": "<!-- markdownlint-disable-next-line --> <p align=\"center\"><img src=\"https://github.com/jaysongiroux/swiftlyui/blob/master/public/SWIFTLY-UI.png\" alt=\"drawing\" width=\"200\"/></p>",
   "bugs": {
     "url": "https://github.com/jaysongiroux/swiftlyui/issues"
   },
-  "homepage": "https://github.com/jaysongiroux/swiftlyui#readme",
+  "homepage": "master--633e84e96532344a299022b4.chromatic.com/",
   "author": {
     "name": "jason giroux"
   },
   "license": "MIT",
-  "readme": "ERROR: No README data found!",
   "_id": "swiftlyui@1.1.1"
 }

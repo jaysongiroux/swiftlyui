@@ -1,4 +1,6 @@
-<!-- markdownlint-disable-next-line -->
+A lightweight, accessible and responsive react component library for your next project.
+
+
 <p align="center"><img src="https://github.com/jaysongiroux/swiftlyui/blob/master/public/SWIFTLY-UI.png" alt="drawing" width="200"/></p>
 
 # SwiftlyUI *(In development)*
@@ -41,8 +43,10 @@ function App(){
 ```
 
 # Documentation 
-## Docs Hosting *Coming soon*
+## Docs Hosting
+[Online Hosting](master--633e84e96532344a299022b4.chromatic.com/)
 
+## Running documents locally
 We use storybook for local docs!
 ```
 yarn storybook

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { useThemeProvider } from '../../Hooks/useThemeProvider/useThemeProvider';
+import useThemeProvider from '../../Hooks/useThemeProvider/useThemeProvider';
 import './IconProgressBarCircle.scss';
 
 const IconProgressBarCircle = ({

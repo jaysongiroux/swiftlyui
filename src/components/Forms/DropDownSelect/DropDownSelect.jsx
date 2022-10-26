@@ -4,8 +4,8 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 
 import Label from '../Label/Label';
-import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
-import { useThemeProvider } from '../../Hooks/useThemeProvider/useThemeProvider';
+import { BsChevronUp } from 'react-icons/bs';
+import useThemeProvider from '../../Hooks/useThemeProvider/useThemeProvider';
 
 import './DropDownSelect.scss';
 

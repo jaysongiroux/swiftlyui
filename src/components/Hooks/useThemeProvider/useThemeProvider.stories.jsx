@@ -1,5 +1,5 @@
 import react from 'react';
-import { useThemeProvider } from './useThemeProvider';
+import useThemeProvider from './useThemeProvider';
 import Button from '../../Forms/Button/Button';
 import ThemeProvider from '../../Providers/ThemeProvider/ThemeProvider';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { useThemeProvider } from '../../Hooks/useThemeProvider/useThemeProvider';
+import useThemeProvider from '../../Hooks/useThemeProvider/useThemeProvider';
 import './ProgressBar.scss';
 
 const ProgressBar = ({ className, color, backgroundColor, steps, curStep, height, style }) => {

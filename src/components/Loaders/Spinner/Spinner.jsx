@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import './Spinner.scss';
-import { useThemeProvider } from '../../Hooks/useThemeProvider/useThemeProvider';
+import useThemeProvider from '../../Hooks/useThemeProvider/useThemeProvider';
 
 const Spinner = ({ className, size, color, style, hasCenter }) => {
   const { primaryColor } = useThemeProvider('spinner');

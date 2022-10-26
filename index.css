@@ -93,7 +93,11 @@ body {
 }
 .Spinner {
   display: flex;
+  width: fit-content;
   justify-content: center;
+}
+.Spinner.xs {
+  height: 20px;
 }
 .Spinner.small {
   height: 50px;
@@ -106,8 +110,7 @@ body {
 }
 
 .SpinnerSVG {
-  width: 50%;
-  max-width: 10rem;
+  width: fit-content;
   animation: rotate 3.6s linear infinite;
 }
 
@@ -117,6 +120,10 @@ body {
   stroke-width: 8px;
   stroke-dasharray: 300;
   animation: outline 2s cubic-bezier(0.77, 0, 0.18, 1) infinite;
+}
+
+.SpinnerCenter {
+  fill: #3f51b5;
 }
 
 @keyframes outline {
@@ -138,7 +145,50 @@ body {
     transform: rotate(-1turn);
   }
 }
+.IconProgressCircle-wrapper {
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+.IconProgressCircle {
+  transform: rotate(-90deg);
+  /* Fix the orientation */
+}
+
+.IconProgressCircle-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.IconProgressCircle-label__progress {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.IconProgressCircle-indicator {
+  stroke: #3f51b5;
+}
+
+.IconProgressCircle-track {
+  stroke: #9e9e9e;
+}
+
+.IconProgressCircle-label__progress {
+  display: block;
+}
+
+/* Spinner animation */
+@keyframes spinner {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .NavBar {
   display: flex;
@@ -189,10 +239,10 @@ body {
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  transition: all 0.2s;
 }
-.Button:hover {
-  background-color: #303f9f;
+.Button:hover:not(.disabled) {
+  filter: brightness(1.2);
 }
 .Button.small {
   font-size: 12px;
@@ -228,7 +278,7 @@ body {
 
 .TextInputContainer {
   width: 100%;
-  border: 1px solid #3f51b5;
+  border: 2px solid #3f51b5;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -257,7 +307,8 @@ textarea {
 .CheckBox:hover:not(.isDisabled) .default-icon {
   box-shadow: 0 0 1px 0 #3f51b5;
 }
-.CheckBox.default-icon {
+
+.CheckBoxIcon {
   background-color: #3f51b5;
   border-radius: 3px;
   padding: 5px;
@@ -362,7 +413,7 @@ textarea {
   transition: transform 0.25 ease-in;
   box-sizing: border-box;
 }
-.RadioButtonCustom:hover {
+.RadioButtonCustom:hover:not(.disabled) {
   box-shadow: 0 0 4px 2px #303f9f;
 }
 
@@ -400,10 +451,9 @@ textarea {
 .RadioButtonSetItem.withHelp.disabled {
   cursor: default;
 }
-.RadioButtonSetItem.withHelp:hover:not(.disabled), .RadioButtonSetItem.withHelp.checked:not(.disabled) {
+.RadioButtonSetItem.withHelp:hover:not(.disabled) {
+  filter: brightness(0.96);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-  border-color: #3f51b5;
-  color: #3f51b5;
 }
 .RadioButtonSetItem.withHelp .RadioButtonDisplayLabel {
   display: flex;
@@ -423,6 +473,18 @@ textarea {
 
 .RadioButtonSetRadioButtonLabel {
   width: 75%;
+}
+.DropdownSelect {
+  line-height: 24px;
+}
+.DropdownSelect input {
+  line-height: 16px;
+}
+
+.DropDownSelectContainer {
+  border: 2px solid #3f51b5;
+  border-radius: 8px;
+  padding: 8px;
 }
 .IconCard .IconCardIcon {
   color: #3f51b5;
@@ -450,7 +512,6 @@ respond("sm") for phone devices and respond("md") for tablets.
   background-color: white;
   border: 2px solid #d6d6d6;
   border-radius: 4px;
-  padding: 0;
   text-align: left !important;
   overflow: visible;
   padding: 20px;
@@ -458,7 +519,7 @@ respond("sm") for phone devices and respond("md") for tablets.
   color: black;
   text-decoration: none;
 }
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   .Card {
     width: 100% !important;
   }
@@ -472,38 +533,18 @@ The respond mixin is used to handle media queries for screen size
 based on the above breakpoints. The most common use will be
 respond("sm") for phone devices and respond("md") for tablets.
 */
-.CardGroup {
-  overflow: visible;
-  margin: 0 auto;
-  padding: 30px 0;
-}
-
-.CardGroupHeader {
-  font-weight: 600;
-  font-size: 28px;
-  margin: 1em 0;
-}
-@media (max-width: 767px) {
-  .CardGroupHeader {
-    text-align: center !important;
-  }
-}
-
-.CardGroupText {
-  font-weight: normal;
-  font-size: 18px;
-  margin: -1em 0 2em 0;
-}
-@media (max-width: 767px) {
-  .CardGroupText {
-    text-align: center !important;
-  }
-}
-
 .CardGroupContentWrap {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+@media (max-width: 800px) {
+  .CardGroupContentWrap {
+    width: 100%;
+    flex-direction: column;
+  }
 }
 /*
 The respond mixin is used to handle media queries for screen size

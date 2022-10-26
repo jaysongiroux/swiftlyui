@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Tooltip from '../../Overlays/Tooltip/Tooltip';
 import Label from '../Label/Label';
 import RadioButton from './RadioButton';
-import { useThemeProvider } from '../../Hooks/useThemeProvider/useThemeProvider';
+import useThemeProvider from '../../Hooks/useThemeProvider/useThemeProvider';
 import './RadioButton.scss';
 
 const RadioButtonSet = ({ value, label, inline, disabled, name, options, onChange, className, helpTipOptions }) => {

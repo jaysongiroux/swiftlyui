@@ -1,0 +1,15 @@
+@import '../../../styles/_colors.scss';
+
+.DropdownSelect {
+  line-height: 24px;
+
+  input {
+    line-height: 16px;
+  }
+}
+
+.DropDownSelectContainer{
+  border: 2px solid $PrimaryColor;
+  border-radius: 8px;
+  padding: 8px;
+}

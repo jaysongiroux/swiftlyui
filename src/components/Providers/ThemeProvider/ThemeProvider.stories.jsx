@@ -8,7 +8,9 @@ import TextInput from '../../Forms/TextInput/TextInput';
 import Spinner from '../../Loaders/Spinner/Spinner';
 import ProgressBar from '../../Loaders/ProgressBar/ProgressBar';
 import IconProgressBarCircle from '../../Loaders/IconProgressBarCircle/IconProgressBarCircle';
+import DropDownSelect from '../../Forms/DropDownSelect/DropDownSelect';
 import { FaBeer } from 'react-icons/fa';
+
 export default {
   title: 'Providers/ThemeProvider',
   component: ThemeProvider,
@@ -51,6 +53,11 @@ export default {
       iconprogressbarcircle: {
         primaryColor: 'green',
         secondaryColor: 'black',
+      },
+      dropdownselect: {
+        primaryColor: 'green',
+        secondaryColor: 'gray',
+        textColor: 'red',
       },
     },
   },
@@ -102,6 +109,54 @@ export const ThemeProviderExample = ({ ...args }) => {
       <h3>TextInput</h3>
       <TextInput style={{ margin: '8px', width: '300px' }} label="Text Input" value="abc123" />
       <TextInput style={{ margin: '8px', width: '300px' }} label="Disabled Text Input" disabled value="abc123" />
+      <h3>DropDownSelect</h3>
+      <DropDownSelect
+        value="option2"
+        label="DropDownSelect"
+        options={[
+          {
+            label: 'Option 1',
+            value: 'option1',
+          },
+          {
+            label: 'Option 2',
+            value: 'option2',
+          },
+          {
+            label: 'Option 3',
+            value: 'option3',
+          },
+          {
+            label: 'Option 4',
+            value: 'option4',
+          },
+        ]}
+        style={{ margin: '8px', width: '300px' }}
+      />
+      <DropDownSelect
+        value="option2"
+        label="DropDownSelect"
+        disabled
+        options={[
+          {
+            label: 'Option 1',
+            value: 'option1',
+          },
+          {
+            label: 'Option 2',
+            value: 'option2',
+          },
+          {
+            label: 'Option 3',
+            value: 'option3',
+          },
+          {
+            label: 'Option 4',
+            value: 'option4',
+          },
+        ]}
+        style={{ margin: '8px', width: '300px' }}
+      />
       <section>
         <h2>Loaders</h2>
         <h3>Spinner</h3>

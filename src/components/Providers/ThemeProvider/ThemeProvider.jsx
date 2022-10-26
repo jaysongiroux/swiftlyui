@@ -40,6 +40,11 @@ const themeDefaultValues = {
     primaryColor: null,
     secondaryColor: null,
   },
+  dropdownselect: {
+    primaryColor: null,
+    secondaryColor: null,
+    disabledColor: null
+  },
 };
 
 export const ThemeContext = createContext(themeDefaultValues);

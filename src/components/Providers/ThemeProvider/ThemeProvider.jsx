@@ -43,7 +43,20 @@ const themeDefaultValues = {
   dropdownselect: {
     primaryColor: null,
     secondaryColor: null,
-    disabledColor: null
+    disabledColor: null,
+  },
+  datetimepicker: {
+    primaryColor: null,
+    secondaryColor: null,
+    disabledColor: null,
+  },
+  switch: {
+    primaryColor: null,
+    secondaryColor: null,
+    textColor: null,
+    selectedTextColor: null,
+    disabledTextColor: null,
+    disabledColor: null,
   },
 };
 

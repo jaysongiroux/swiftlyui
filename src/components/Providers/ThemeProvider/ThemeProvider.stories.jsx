@@ -10,6 +10,8 @@ import ProgressBar from '../../Loaders/ProgressBar/ProgressBar';
 import IconProgressBarCircle from '../../Loaders/IconProgressBarCircle/IconProgressBarCircle';
 import DropDownSelect from '../../Forms/DropDownSelect/DropDownSelect';
 import { FaBeer } from 'react-icons/fa';
+import DateTimePicker from '../../Forms/DateTimePicker/DateTimePicker';
+import Switch from '../../Forms/Switch/Switch';
 
 export default {
   title: 'Providers/ThemeProvider',
@@ -58,6 +60,19 @@ export default {
         primaryColor: 'green',
         secondaryColor: 'gray',
         textColor: 'red',
+      },
+      datetimepicker: {
+        primaryColor: 'green',
+        secondaryColor: 'blue',
+        disabledColor: 'tomato',
+      },
+      switch: {
+        primaryColor: 'green',
+        secondaryColor: 'blue',
+        textColor: 'white',
+        selectedTextColor: 'white',
+        disabledTextColor: 'white',
+        disabledColor: 'lightgray',
       },
     },
   },
@@ -156,6 +171,39 @@ export const ThemeProviderExample = ({ ...args }) => {
           },
         ]}
         style={{ margin: '8px', width: '300px' }}
+      />
+      <h3>DateTimePicker</h3>
+      <DateTimePicker style={{ margin: '8px' }} onChange={() => {}} label="DateTimePicker" value={'11/20/2020'} />
+      <DateTimePicker
+        style={{ margin: '8px' }}
+        onChange={() => {}}
+        label="DateTimePicker"
+        value={'11/20/2020'}
+        disabled
+      />
+      <h3>Switch</h3>
+      <Switch
+        options={[
+          { label: 'option 1', value: 'option1' },
+          { label: 'option 2', value: 'option2' },
+          { label: 'option 3', value: 'option3' },
+        ]}
+        value={'option1'}
+        style={{ margin: '8px' }}
+        onChange={() => {}}
+        label="Switch"
+      />
+      <Switch
+        options={[
+          { label: 'option 1', value: 'option1' },
+          { label: 'option 2', value: 'option2' },
+          { label: 'option 3', value: 'option3' },
+        ]}
+        value={'option1'}
+        style={{ margin: '8px' }}
+        onChange={() => {}}
+        disabled
+        label="Disabled Switch"
       />
       <section>
         <h2>Loaders</h2>

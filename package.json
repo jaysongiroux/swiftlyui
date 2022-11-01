@@ -14,15 +14,20 @@
     "babel-cli": "^6.26.0",
     "classnames": "^2.3.2",
     "crypto": "^1.0.1",
+    "date-fns": "^2.29.3",
+    "dayjs": "^1.11.6",
     "lodash": "^4.17.21",
     "react": "^16.13.1",
+    "react-animated-css": "^1.2.1",
+    "react-datepicker": "^4.8.0",
     "react-dom": "^16.13.1",
     "react-icons": "^4.4.0",
     "react-scripts": "5.0.1",
     "react-select": "^5.5.6",
     "react-tooltip": "^4.2.21",
     "sass": "^1.55.0",
-    "storybook-addon-state": "^1.0.3"
+    "storybook-addon-state": "^1.0.3",
+    "styled-components": "^5.3.6"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",

@@ -1,0 +1,64 @@
+@import '../../../styles/_colors.scss';
+@import '../../../styles/_mixins.scss';
+
+.DateTimePicker {
+  border: 2px solid $PrimaryColor;
+  padding: 8px;
+  border-radius: 4px;
+  min-width: 150px;
+}
+
+.DateTimePickerInput {
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  height: 30px;
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+.DateTimePickerRow{
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-between;
+  align-items: center;
+}
+
+.DateTimePickerIcon{
+  margin-right: 8px;
+}
+
+.DateTimePickerLabel{
+  font-size: 14px;
+}
+
+div[class*="--selected"] {
+  background-color: $PrimaryColor;
+  border-radius: 50%;
+}
+
+.DateTimePicker {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.react-datepicker__input-time-container{
+  padding: 8px;
+  margin: 0;
+}
+
+.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle ,
+.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle{
+  transform: translateX(150px) !important;
+}
+
+.DateTimeIconButton {
+  @include noStyleButton;
+}
+
+.DateInputDisabledSpan{
+  color: $disabledText;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}

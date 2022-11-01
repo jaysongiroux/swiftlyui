@@ -20,6 +20,7 @@ export { default as CheckBox } from './Forms/CheckBox/CheckBox';
 export { default as RadioButton } from './Forms/RadioButton/RadioButton';
 export { default as RadioButtonSet } from './Forms/RadioButton/RadioButtonSet';
 export { default as DropDownSelect } from './Forms/DropDownSelect/DropDownSelect';
+export { default as DateTimePicker } from './Forms/DateTimePicker/DateTimePicker';
 
 // HOOKS
 export { default as useEscape } from './Hooks/useEscape/useEscape';

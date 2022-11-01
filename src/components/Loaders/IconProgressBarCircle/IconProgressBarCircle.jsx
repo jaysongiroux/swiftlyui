@@ -13,7 +13,6 @@ const IconProgressBarCircle = ({
   indicatorWidth,
   indicatorColor,
   indicatorCap,
-  spinnerSpeed,
   showPercentage,
   children,
 }) => {
@@ -43,7 +42,7 @@ const IconProgressBarCircle = ({
           cy={center}
           fill="transparent"
           r={radius}
-          style={{ stroke: loadingBarColor, animationDuration: spinnerSpeed * 1000 }}
+          style={{ stroke: loadingBarColor }}
           strokeWidth={indicatorWidth}
           strokeDasharray={dashArray}
           strokeDashoffset={dashOffset}
@@ -71,7 +70,6 @@ IconProgressBarCircle.propTypes = {
   indicatorColor: PropTypes.string,
   indicatorCap: PropTypes.oneOf(['butt', 'round', 'square']),
   label: PropTypes.string,
-  spinnerSpeed: PropTypes.number,
   showPercentage: PropTypes.bool,
 };
 
@@ -84,7 +82,6 @@ IconProgressBarCircle.defaultProps = {
   indicatorWidth: 10,
   indicatorColor: null,
   indicatorCap: `round`,
-  spinnerSpeed: 1,
   showPercentage: true,
 };
 

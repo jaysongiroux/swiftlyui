@@ -1,0 +1,33 @@
+@import '../../../styles/_colors.scss';
+@import '../../../styles/_breakpoints.scss';
+
+.SwitchWrapperButton {
+  padding: 10px;
+  min-height: 40px;
+  border: none;
+  transition: .25s;
+  &:first-child{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  &:last-child{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  &.selected {
+    &:not(.disabled):hover {
+      filter: brightness(.9);
+    }
+    &.disabled {
+      filter: brightness(.9);
+    }
+  }
+  &.disabled{
+    cursor: not-allowed;
+  }
+
+  &:not(.selected):not(.disabled):hover{
+    filter: brightness(.9);
+  }
+}
